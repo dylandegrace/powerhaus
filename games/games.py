@@ -99,13 +99,13 @@ class Games:
         try:
             await self.bot.add_roles(author, role_to_add)
         except discord.errors.Forbidden:
-            log.debug("{} just tried to add a role but I was forbidden".format(
+            log.debug("{} just tried to add a game but I was forbidden".format(
                 author.name))
             await self.bot.say("I don't have permissions to do that.")
         except AttributeError:  # role_to_add is NoneType
             log.debug("{} not found as settable on {}".format(rolename,
                                                               server.id))
-            await self.bot.say("That role isn't user settable.")
+            await self.bot.say("That game isn't one that is supported. Please see `!games` for the full list.")
         else:
             log.debug("Role {} added to {} on {}".format(rolename, author.name,
                                                          server.id))
