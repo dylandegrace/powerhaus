@@ -50,16 +50,16 @@ class Games:
    
     @commands.group(pass_context=True, no_pm=True)
     async def gameset(self, ctx):
-        """Manage Admin settings"""
+        """Manage game settings"""
         if ctx.invoked_subcommand is None:
             await self.bot.send_cmd_help(ctx)
 
     @gameset.command(pass_context=True, name="addgames")
     @checks.admin_or_permissions(manage_roles=True)
     async def gameset_addgames(self, ctx, *, rolelist=None):
-        """Set which roles users can set themselves.
+        """Set which games users can add to their account.
 
-        COMMA SEPARATED LIST (e.g. Admin,Staff,Mod)"""
+        COMMA SEPARATED LIST (e.g. csgo, rainbow 6, diablo 3)"""
         server = ctx.message.server
         if rolelist is None:
             await self.bot.say("addgame list cleared.")
