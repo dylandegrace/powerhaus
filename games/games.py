@@ -160,7 +160,7 @@ class Games:
         field_contents = "Example contents for this field <@&221401023263014913> <@79639997778497536> \n ```WHATHWAT```"
         footer_text = "i am tiny text";
 		
-        role_names = self._get_addgame_names(server)
+        role_names = str(self._get_addgame_names(server))
 
         for ch in ['[',']',"'"]:
             if ch in role_names:
