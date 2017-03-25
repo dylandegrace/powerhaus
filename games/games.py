@@ -109,7 +109,7 @@ class Games:
         else:
             log.debug("Role {} added to {} on {}".format(rolename, author.name,
                                                          server.id))
-            gameSuccess = "Game **{}** successfully added.".format(rolename)											 
+            gameSuccess = "Game **{}** successfully added. You now have access to new channels.".format(rolename)											 
             await self.bot.say(gameSuccess)
 
     @addgame.command(no_pm=True, pass_context=True, name="remove", aliases=["poo", "number2", "duty"])
