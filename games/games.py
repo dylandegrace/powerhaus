@@ -165,15 +165,14 @@ class Games:
             if ch in role_names:
                 role_names = role_names.replace(ch, "\n")
         
-        field_value = ("To add a game to your account and gain access to the channels "
-        "please type !addgame followed by the game you wish to add. "
-        "If you want to remove a game, use the command !removegame followed by the game you wish to remove."
-        "E.g.: To add Overwatch type, !addgame overwatch.")
+        field_value = ("```\n"+role_names+"``` \nTo add a game to your account and gain access to the channels "
+        "please type `!` followed by the game you wish to add. "
+        "If you want to remove a game, use the command `!removegame` followed by the game you wish to remove.")
 		
         embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
         embed.title = "**GAMES LIST**"
-        embed.add_field(name="We support the following games in our Discord server with private channels:\n", value="```\n"+role_names+"```") # Can add multiple fields.
-        embed.add_field(name="Test", value=field_value) 
+        embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=field_value) # Can add multiple fields.
+        embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.")
         await self.bot.say(embed=embed)
 
 
