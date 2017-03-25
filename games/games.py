@@ -163,7 +163,7 @@ class Games:
         role_names = self._get_addgame_names(server)
 
         for ch in ['[',']',"'"]:
-            if ch in string:
+            if ch in role_names:
                 role_names = role_names.replace(ch,"")
 		
         for ch in [", "]:
