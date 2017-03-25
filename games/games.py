@@ -153,7 +153,6 @@ class Games:
         
         server = ctx.message.server
 		
-        author_name = ctx.message.author
         description = ("Short little description with a link to google "
                    "(https://www.google.com")
         footer_text = "i am tiny text";
@@ -168,12 +167,11 @@ class Games:
             if ch in role_names:
                 role_names = role_names.replace(ch, "\n")
 
-        embed = discord.Embed(colour=0xdb941a, description=description) # Can use discord.Colour() as well
+        embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
         embed.title = "i am the title"
-        embed.set_author(name="POWERHAUSGG", icon_url="https://www.powerhaus.gg/wp-content/uploads/2017/01/cropped-logoSquare-1.png")
         embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=role_names) # Can add multiple fields.
         embed.set_footer(text=footer_text)
-        await self.bot.say(embed=embed)		
+        await self.bot.say(embed=embed)
 
 
 def check_files():
