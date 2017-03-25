@@ -87,7 +87,7 @@ class Games:
         author = ctx.message.author
         role_names = self._get_addgame_names(server)
         if role_names is None:
-            await self.bot.say("I have no user settable roles for this"
+            await self.bot.say("I have no user settable game roles for this"
                                " server.")
             return
 
@@ -146,6 +146,25 @@ class Games:
                                                              server.id))
             gameRemoveSuccess = "Game **{}** successfully removed. You have lost access to those channels.".format(rolename)
             await self.bot.say(gameRemoveSuccess)
+
+    @commands.command(pass_context=True)
+    async def mycommand(self, ctx):
+
+    author_name = ctx.message.author
+    description = ("Short little description with a link to "
+                   "the [guide](https://github.com/Redjumpman/Jumper-Cogs/wiki/Discord-Coding-Guide)")
+    field_name = "Generic Name"
+    field_contents = "Example contents for this field"
+    footer_text = "Hi. I am a footer text. I look small when displayed.
+
+    embed = discord.Embed(colour=0xFF0000, description=description) # Can use discord.Colour() as well
+    embed.title = "Cool title for my embed"
+    embed.set_author(name=str(author.name), icon_url=author.avatar_url)
+    embed.add_field(name=field_name, value=field_contents) # Can add multiple fields.
+    embed.set_footer(text=footer_text)
+
+    await self.bot.say(embed=embed)
+
 
 
 def check_files():
