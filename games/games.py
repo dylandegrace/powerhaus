@@ -145,7 +145,7 @@ class Games:
                                                              author.name,
                                                              server.id))
             gameRemoveSuccess = "Game **{}** successfully removed. You have lost access to those channels.".format(rolename)
-			await self.bot.say(gameRemoveSuccess)
+            await self.bot.say(gameRemoveSuccess)
 
 
 def check_files():
