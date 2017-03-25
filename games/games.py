@@ -109,7 +109,8 @@ class Games:
         else:
             log.debug("Role {} added to {} on {}".format(rolename, author.name,
                                                          server.id))
-            await self.bot.say("Role added.")
+			gameSuccess = "Game {} successfully added. Please see your DMs for more information about the game (e.g. the Division Leader)".format(rolename)											 
+            await self.bot.say(gameSuccess)
 
     @addgame.command(no_pm=True, pass_context=True, name="remove", aliases=["poo", "number2", "duty"])
     async def addgame_remove(self, ctx, *, rolename):
