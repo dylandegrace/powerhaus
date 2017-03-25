@@ -177,8 +177,7 @@ class Games:
     @commands.command(no_pm=True)
     async def membercount(self, server):
 	
-        mem = [member if self in member.roles for member in self.server.members]
-        await self.bot.say(mem)
+        await self.bot.say(self._role_from_string(roles))
 
 
 def check_files():
