@@ -144,7 +144,8 @@ class Games:
             log.debug("Role {} removed from {} on {}".format(rolename,
                                                              author.name,
                                                              server.id))
-            await self.bot.say("Role removed.")
+            gameRemoveSuccess = "Game **{}** successfully removed. You have lost access to those channels.".format(rolename)
+			await self.bot.say(gameRemoveSuccess)
 
 
 def check_files():
