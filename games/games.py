@@ -153,8 +153,6 @@ class Games:
         
         server = ctx.message.server
 		
-        description = ("Short little description with a link to google "
-                   "(https://www.google.com")
         footer_text = "i am tiny text";
 		
         role_names = str(sorted(self._get_addgame_names(server)))
@@ -166,12 +164,16 @@ class Games:
         for ch in [", "]:
             if ch in role_names:
                 role_names = role_names.replace(ch, "\n")
-
-        description = "We support the following games in our Discord server with private channels:\n"		
-        embed = discord.Embed(colour=0xdb941a, description=description) # Can use discord.Colour() as well
-        embed.title = "__**GAMES LIST**__"
-        embed.add_field(name="", value="```\n"+role_names+"```") # Can add multiple fields.
-        embed.set_footer(text=footer_text)
+        
+        field_value = ("To add a game to your account and gain access to the channels "
+        "please type !addgame followed by the game you wish to add. "
+        "If you want to remove a game, use the command !removegame followed by the game you wish to remove."
+        "E.g.: To add Overwatch type, !addgame overwatch.")
+		
+        embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
+        embed.title = "**GAMES LIST**"
+        embed.add_field(name="We support the following games in our Discord server with private channels:\n", value="```\n"+role_names+"```") # Can add multiple fields.
+        embed.add_field(name="Test", value=field_value) 
         await self.bot.say(embed=embed)
 
 
