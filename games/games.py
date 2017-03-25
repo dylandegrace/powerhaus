@@ -167,9 +167,9 @@ class Games:
             if ch in role_names:
                 role_names = role_names.replace(ch, "\n")
 
-        embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
+        description = "We support the following games in our Discord server with private channels:\n"		
+        embed = discord.Embed(colour=0xdb941a, description=description) # Can use discord.Colour() as well
         embed.title = "__**GAMES LIST**__"
-        embed.description = "We support the following games in our Discord server with private channels:\n"
         embed.add_field(name="", value="```\n"+role_names+"```") # Can add multiple fields.
         embed.set_footer(text=footer_text)
         await self.bot.say(embed=embed)
