@@ -149,11 +149,11 @@ class Games:
             await self.bot.say(gameRemoveSuccess)
 			
     @commands.command(no_pm=True, pass_context=True)
-    async def embedtest(self, ctx):
+    async def games(self, ctx):
         
         server = ctx.message.server
 		
-        footer_text = "i am tiny text";
+        footer_text = "View our game pages on [our website](https://www.powerhaus.gg/games).";
 		
         role_names = str(sorted(self._get_addgame_names(server)))
 
@@ -173,6 +173,7 @@ class Games:
         embed.title = "**GAMES LIST**"
         embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=field_value) # Can add multiple fields.
         embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.")
+		embed.footer = footer_text
         await self.bot.say(embed=embed)
 
 
