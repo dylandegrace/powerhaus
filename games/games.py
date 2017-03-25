@@ -156,8 +156,6 @@ class Games:
         author_name = ctx.message.author
         description = ("Short little description with a link to google "
                    "(https://www.google.com")
-        field_name = "Generic Name"
-        field_contents = "Example contents for this field <@&221401023263014913> <@79639997778497536> \n ```WHATHWAT```"
         footer_text = "i am tiny text";
 		
         role_names = str(self._get_addgame_names(server))
@@ -173,7 +171,7 @@ class Games:
         embed = discord.Embed(colour=0xdb941a, description=description) # Can use discord.Colour() as well
         embed.title = "i am the title"
         embed.set_author(name="test", icon_url="https://www.powerhaus.gg/wp-content/uploads/2017/01/overwatchgame.png")
-        embed.add_field(name=field_name, value=role_names) # Can add multiple fields.
+        embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=[``` role_names ```]) # Can add multiple fields.
         embed.set_footer(text=footer_text)
         await self.bot.say(embed=embed)		
 
