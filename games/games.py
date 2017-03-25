@@ -112,7 +112,7 @@ class Games:
                                                          server.id))
             gameSuccess = "Game **{}** successfully added. You now have access to new channels.".format(rolename)											 
             await self.bot.say(gameSuccess)
-            await self.bot.whisper('it worked')
+            """await self.bot.whisper('hey it worked')"""
 
     @addgame.command(no_pm=True, pass_context=True, name="remove")
     async def addgame_remove(self, ctx, *, rolename):
@@ -164,9 +164,8 @@ class Games:
             if ch in role_names:
                 role_names = role_names.replace(ch, "\n")
         
-        field_value = ("```\n"+role_names+"``` \nTo add a game to your account and gain access to the channels "
-        "please type `!` followed by the game you wish to add. "
-        "If you want to remove a game, use the command `!removegame` followed by the game you wish to remove.")
+        field_value = ("```\n"+role_names+"``` \nTo gain access to a game's channel please type `!addgame` followed by the game's name. "
+        "To remove yourself type `!removegame` followed by the game's name.")
 		
         embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
         embed.type = "rich"
