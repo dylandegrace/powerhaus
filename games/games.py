@@ -148,7 +148,7 @@ class Games:
             await self.bot.say(gameRemoveSuccess)
 			
     @commands.command(no_pm=True, pass_context=True)
-    async def games(self, ctx):
+    async def embedtest(self, ctx):
         
         author_name = ctx.message.author
         description = ("Short little description with a link to google "
