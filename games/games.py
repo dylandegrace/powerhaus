@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from cogs.utils import checks
 from cogs.utils.dataIO import dataIO
+from .utils.dataIO import fileIO
 from cogs.utils.chat_formatting import box, pagify
 from copy import deepcopy
 import asyncio
@@ -156,11 +157,12 @@ class Games:
         field_name = "Generic Name"
         field_contents = "Example contents for this field <@&221401023263014913> <@79639997778497536> \n ```WHATHWAT```"
         footer_text = _get_addgame_names();
-
+		
+		
         embed = discord.Embed(colour=0xdb941a, description=description) # Can use discord.Colour() as well
         embed.title = "i am the title"
         embed.set_author(name="test", icon_url="https://www.powerhaus.gg/wp-content/uploads/2017/01/overwatchgame.png")
-        embed.add_field(name=field_name, value=field_contents) # Can add multiple fields.
+        embed.add_field(name=field_name, value=self._settable_roles) # Can add multiple fields.
         embed.set_footer(text=footer_text)
         await self.bot.say(embed=embed)		
 
