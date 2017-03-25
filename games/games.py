@@ -171,6 +171,7 @@ class Games:
 		
         embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
         embed.type = "rich"
+		embed.url="https://www.powerhaus.gg/games"
         embed.title = "**GAMES LIST**"
         embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=field_value) # Can add multiple fields.
         embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.")
