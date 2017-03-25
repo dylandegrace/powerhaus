@@ -161,9 +161,15 @@ class Games:
         footer_text = "i am tiny text";
 		
         role_names = self._get_addgame_names(server)
-        
+
+        for ch in ['[',']',"'"]:
+            if ch in string:
+                role_names = role_names.replace(ch,"")
 		
-		
+        for ch in [", "]:
+            if ch in role_names:
+                role_names = role_names.replace(ch, "\n")
+
         embed = discord.Embed(colour=0xdb941a, description=description) # Can use discord.Colour() as well
         embed.title = "i am the title"
         embed.set_author(name="test", icon_url="https://www.powerhaus.gg/wp-content/uploads/2017/01/overwatchgame.png")
