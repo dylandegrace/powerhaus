@@ -111,7 +111,7 @@ class Games:
                                                          server.id))
             await self.bot.say("Role added.")
 
-    @addgame.command(no_pm=True, pass_context=True, name="remove")
+    @addgame.command(no_pm=True, pass_context=True, name="remove", aliases=["poo", "number2", "duty"])
     async def addgame_remove(self, ctx, *, rolename):
         """Allows users to remove their own roles
 
