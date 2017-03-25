@@ -178,7 +178,7 @@ class Games:
     async def membercount(self, server):
 	
         mem = [member if self in member.roles for member in self.server.members]
-        return mem
+        await self.bot.say(mem)
 
 
 def check_files():
