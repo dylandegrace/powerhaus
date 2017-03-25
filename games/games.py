@@ -164,8 +164,8 @@ class Games:
             if ch in role_names:
                 role_names = role_names.replace(ch, "\n")
         
-        field_value = ("```\n"+role_names+"``` \nTo gain access to a game's channel please type `!addgame` followed by the game's name. "
-        "To remove yourself type `!removegame` followed by the game's name.")
+        field_value = ("```\n"+role_names+"``` \nTo gain access to a game's channel please type `!addgame` followed by the game name. "
+        "To remove yourself type `!removegame` followed by the game name.")
 		
         embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
         embed.type = "rich"
