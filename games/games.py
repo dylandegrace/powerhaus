@@ -156,7 +156,7 @@ class Games:
                    "(https://www.google.com")
         field_name = "Generic Name"
         field_contents = "Example contents for this field <@&221401023263014913> <@79639997778497536> \n ```WHATHWAT```"
-        footer_text = _get_addgame_names();
+        footer_text = "i am tiny text";
 		
 		
         embed = discord.Embed(colour=0xdb941a, description=description) # Can use discord.Colour() as well
