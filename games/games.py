@@ -177,7 +177,7 @@ class Games:
     @commands.command(no_pm=True, pass_context=True)
     async def membercount(self, ctx):
         
-        all_members = self.server.member
+        all_members = self.server.members
         if self.is_default():
             return all_members
 
