@@ -170,7 +170,7 @@ class Games:
         "If you want to remove a game, use the command `!removegame` followed by the game you wish to remove.")
 		
         embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
-		embed.type = "rich"
+        embed.type = "rich"
         embed.title = "**GAMES LIST**"
         embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=field_value) # Can add multiple fields.
         embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.")
