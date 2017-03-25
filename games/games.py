@@ -177,7 +177,7 @@ class Games:
     @commands.command(no_pm=True)
     async def membercount(self):
 	
-        await self.bot.say(self._role_from_string(role))
+        await self.bot.say(self._role_from_string())
 
 
 def check_files():
