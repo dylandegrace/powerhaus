@@ -173,7 +173,7 @@ class Games:
         embed.title = "**GAMES LIST**"
         embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=field_value) # Can add multiple fields.
         embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.")
-		embed.footer = footer_text
+        embed.footer = footer_text
         await self.bot.say(embed=embed)
 
 
