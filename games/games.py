@@ -161,7 +161,9 @@ class Games:
         footer_text = "i am tiny text";
 		
         f = self._role_from_string
+        role_names = self._get_addgame_names(server)
         roles = [f(server, r) for r in role_names if r is not None]
+		
 		
         embed = discord.Embed(colour=0xdb941a, description=description) # Can use discord.Colour() as well
         embed.title = "i am the title"
