@@ -153,7 +153,7 @@ class Games:
         
         server = ctx.message.server
 		
-        footer_text = "View our game pages on [our website](https://www.powerhaus.gg/games).";
+        footer_text = 'You can put [masked links](http://google.com) inside of rich embeds.';
 		
         role_names = str(sorted(self._get_addgame_names(server)))
 
