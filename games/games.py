@@ -168,7 +168,7 @@ class Games:
         embed = discord.Embed(colour=0xdb941a, description=description) # Can use discord.Colour() as well
         embed.title = "i am the title"
         embed.set_author(name="test", icon_url="https://www.powerhaus.gg/wp-content/uploads/2017/01/overwatchgame.png")
-        embed.add_field(name=field_name, value=roles) # Can add multiple fields.
+        embed.add_field(name=field_name, value=role_names) # Can add multiple fields.
         embed.set_footer(text=footer_text)
         await self.bot.say(embed=embed)		
 
