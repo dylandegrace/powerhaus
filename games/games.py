@@ -173,6 +173,17 @@ class Games:
         embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=field_value) # Can add multiple fields.
         embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.\n\nView our game pages on [our website](https://www.powerhaus.gg/games)")
         await self.bot.say(embed=embed)
+		
+        @commands.command(no_pm=True, pass_context=True)
+        async def membercount(self, ctx):
+        
+		all_members = self.guild.members
+        if self.is_default():
+            return all_members
+
+        role_names = str(sorted(self._get_addgame_names(server)))
+        
+        await self.bot.say(all_members)
 
 
 def check_files():
