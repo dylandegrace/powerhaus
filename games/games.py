@@ -175,7 +175,7 @@ class Games:
         await self.bot.say(embed=embed)
 		
     @commands.command(no_pm=True)
-    async def membercount(server):
+    async def membercount(self, server):
 	
         await self.bot.say(server.members)
 
