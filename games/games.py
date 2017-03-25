@@ -151,7 +151,7 @@ class Games:
     @commands.command(no_pm=True, pass_context=True)
     async def embedtest(self, ctx):
         
-		server = ctx.message.server
+        server = ctx.message.server
 		
         author_name = ctx.message.author
         description = ("Short little description with a link to google "
