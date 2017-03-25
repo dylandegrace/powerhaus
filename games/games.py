@@ -148,16 +148,16 @@ class Games:
             await self.bot.say(gameRemoveSuccess)
 			
     @commands.command(no_pm=True, pass_context=True)
-    async def embedtest(self, ctx):
+    async def games(self, ctx):
         
         author_name = ctx.message.author
         description = ("Short little description with a link to google "
                    "(https://www.google.com")
         field_name = "Generic Name"
-        field_contents = "Example contents for this field"
+        field_contents = "Example contents for this field \n ```WHATHWAT```"
         footer_text = "Hi. I am a footer text."
 
-        embed = discord.Embed(colour=0xFF0000, description=description) # Can use discord.Colour() as well
+        embed = discord.Embed(colour=0xdb941a, description=description) # Can use discord.Colour() as well
         embed.title = "i am the title"
         embed.set_author(name="test", icon_url="https://www.powerhaus.gg/wp-content/uploads/2017/01/overwatchgame.png")
         embed.add_field(name=field_name, value=field_contents) # Can add multiple fields.
