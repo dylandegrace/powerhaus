@@ -112,6 +112,7 @@ class Games:
                                                          server.id))
             gameSuccess = "Game **{}** successfully added. You now have access to new channels.".format(rolename)											 
             await self.bot.say(gameSuccess)
+            await self.bot.whisper('it worked')
 
     @addgame.command(no_pm=True, pass_context=True, name="remove")
     async def addgame_remove(self, ctx, *, rolename):
