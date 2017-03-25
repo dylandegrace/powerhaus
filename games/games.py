@@ -174,10 +174,10 @@ class Games:
         embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.\n\nView our game pages on [our website](https://www.powerhaus.gg/games)")
         await self.bot.say(embed=embed)
 		
-        @commands.command(no_pm=True, pass_context=True)
-        async def membercount(self, ctx):
+    @commands.command(no_pm=True, pass_context=True)
+    async def membercount(self, ctx):
         
-		all_members = self.guild.members
+        all_members = self.guild.members
         if self.is_default():
             return all_members
 
