@@ -174,8 +174,8 @@ class Games:
         embed.url="https://www.powerhaus.gg/games"
         embed.title = "**GAMES LIST**"
         embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=field_value) # Can add multiple fields.
-        embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.\n View our game pages on [our website](https://www.powerhaus.gg/games)")
-        embed.set_footer(text=footer_text, icon_url="https://www.powerhaus.gg/wp-content/uploads/2017/03/PowerHausGorilla2.png")
+        embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.\n\nView our game pages on [our website](https://www.powerhaus.gg/games)")
+        embed.set_footer(text=footer_text, icon_url="https://www.powerhaus.gg/wp-content/uploads/2017/03/PowerHausGorilla2-1.png")
         await self.bot.say(embed=embed)
 
 
