@@ -176,14 +176,15 @@ class Games:
 		
     @commands.command(no_pm=True, pass_context=True)
     async def membercount(self, ctx):
+	
+        to_return = []
+        for member in self.server.members:
+            if member.name == username:
+                to_return.append(member)
         
-        all_members = self.server.members
-        if self.is_default():
-            return all_members
-
         role_names = str(sorted(self._get_addgame_names(server)))
         
-        await self.bot.say(all_members)
+        await self.bot.say(to_return)
 
 
 def check_files():
