@@ -153,7 +153,7 @@ class Games:
         
         server = ctx.message.server
 		
-        footer_text = 'View our game pages on our website at [test](https://www.powerhaus.gg/games)'
+        footer_text = 'POWERHAUS.GG'
 		
         role_names = str(sorted(self._get_addgame_names(server)))
 
@@ -174,9 +174,8 @@ class Games:
         embed.url="https://www.powerhaus.gg/games"
         embed.title = "**GAMES LIST**"
         embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=field_value) # Can add multiple fields.
-        embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.\n")
-        embed.add_field(name="2",value="View our game pages on our website at [test](https://www.powerhaus.gg/games)", inline=True)
-        embed.set_footer(text=footer_text)
+        embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.\n View our game pages on [our website](https://www.powerhaus.gg/games")
+        embed.set_footer(text=footer_text, icon_url="https://www.powerhaus.gg/wp-content/uploads/2017/03/PowerHausGorilla2.png")
         await self.bot.say(embed=embed)
 
 
