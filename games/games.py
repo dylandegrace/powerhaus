@@ -113,7 +113,7 @@ class Games:
             gameSuccess = "Game **{}** successfully added. You now have access to new channels.".format(rolename)											 
             await self.bot.say(gameSuccess)
 
-    @addgame.command(no_pm=True, pass_context=True, name="remove", aliases=["poo", "number2", "duty"])
+    @addgame.command(no_pm=True, pass_context=True, name="remove")
     async def addgame_remove(self, ctx, *, rolename):
         """Allows users to remove their own roles
 
@@ -151,6 +151,8 @@ class Games:
     @commands.command(no_pm=True, pass_context=True)
     async def embedtest(self, ctx):
         
+		server = ctx.message.server
+		
         author_name = ctx.message.author
         description = ("Short little description with a link to google "
                    "(https://www.google.com")
@@ -158,11 +160,13 @@ class Games:
         field_contents = "Example contents for this field <@&221401023263014913> <@79639997778497536> \n ```WHATHWAT```"
         footer_text = "i am tiny text";
 		
+        f = self._role_from_string
+        roles = [f(server, r) for r in role_names if r is not None]
 		
         embed = discord.Embed(colour=0xdb941a, description=description) # Can use discord.Colour() as well
         embed.title = "i am the title"
         embed.set_author(name="test", icon_url="https://www.powerhaus.gg/wp-content/uploads/2017/01/overwatchgame.png")
-        embed.add_field(name=field_name, value=self._settable_roles) # Can add multiple fields.
+        embed.add_field(name=field_name, value=roles) # Can add multiple fields.
         embed.set_footer(text=footer_text)
         await self.bot.say(embed=embed)		
 
