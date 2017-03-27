@@ -15,7 +15,7 @@ log = logging.getLogger('red.massmove')
 class Massmove:
     """Massmove users to another voice channel"""
 
-    def __init__(self, ctx, bot):
+    def __init__(self, bot):
         self.bot = bot
 
     @commands.command(pass_context=True)
