@@ -15,14 +15,12 @@ log = logging.getLogger('red.massmove')
 class Massmove:
     """Massmove users to another voice channel"""
 
-    def __init__(self, bot):
+    def __init__(self, ctx, bot):
         self.bot = bot
 
     @commands.command(pass_context=True)
-    """@checks.mod_or_permissions(manage_messages=True)"""
+    @checks.role_or_permissions(ctx, lambda r: r.name in ('Admin', 'Division Lead'), manage_messages=True)
     async def massmove(self, ctx, from_channel: discord.Channel, to_channel: discord.Channel):
-    
-    checks.mod_or_permissions(ctx, lambda r: r.name in ('Admin', 'Division Lead'), manage_messages=True)
         """Massmove users to another voice channel"""
         await self._massmove(ctx, from_channel, to_channel)
 
