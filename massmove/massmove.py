@@ -19,7 +19,7 @@ class Massmove:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    @commands.has_any_roles("Admin", "Division Lead")
+    @checks.role_or_permissions("Admin", "Division Lead")
     async def massmove(self, ctx, from_channel: discord.Channel, to_channel: discord.Channel):
         """Massmove users to another voice channel"""
         await self._massmove(ctx, from_channel, to_channel)
