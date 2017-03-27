@@ -19,13 +19,13 @@ class Massmove:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    @checks.admin_or_permissions(move_members=True)
+    @checks.has_any_roles("Admin","Division Lead")
     async def massmove(self, ctx, from_channel: discord.Channel, to_channel: discord.Channel):
         """Massmove users to another voice channel"""
         await self._massmove(ctx, from_channel, to_channel)
 
     async def _massmove(self, ctx, from_channel, to_channel):
-        """Internal function: Massmove users to another voice channl"""
+        """Internal function: Massmove users to another voice channel"""
         # check if channels are voice channels. Or moving will be very... interesting...
         type_from = str(from_channel.type)
         type_to = str(to_channel.type)
