@@ -25,7 +25,7 @@ class Massmove:
         await self._massmove(ctx, from_channel, to_channel)
 
     async def _massmove(self, ctx, from_channel, to_channel):
-        """Internal function: Massmove users to another voice channel"""
+        """Internal function: Massmove users to another voice channl"""
         # check if channels are voice channels. Or moving will be very... interesting...
         type_from = str(from_channel.type)
         type_to = str(to_channel.type)
