@@ -80,7 +80,6 @@ class Games:
             "Self roles successfully set to: {}".format(parsed_role_set))
 
     @commands.group(no_pm=True, pass_context=True, invoke_without_command=True)
-    @checks.mod_or_permissions(embed_links=True)
     async def addgame(self, ctx, *, rolename):
         """Wow there partner, you forgot to add a game at the end of the command.
         Review the list with !games and append them (individually) to your !addgame command
@@ -93,9 +92,6 @@ class Games:
             await self.bot.say("I have no user settable game roles for this"
                                " server.")
             return
-
-        if embed_links is False:
-            await self.bot.whisper('You must first accept the rules in the welcome channel before adding any games.')
 
         f = self._role_from_string
         roles = [f(server, r) for r in role_names if r is not None]
@@ -112,6 +108,8 @@ class Games:
             log.debug("{} not found as settable on {}".format(rolename,
                                                               server.id))
             await self.bot.say("That game isn't one that is supported. Please see `!games` for the full list.")
+        except embed_links is False:
+            await self.bot.whisper('You must accept the rules in the welcome channel before adding any games')
         else:
             log.debug("Role {} added to {} on {}".format(rolename, author.name,
                                                          server.id))
