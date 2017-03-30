@@ -17,7 +17,7 @@ class General:
     @commands.command(pass_context=True, no_pm=True)
     async def userstats(self, ctx, *, user: discord.Member=None):
         """Saves server user information"""
-		user = server.members
+        user = server.members
         server = ctx.message.server
 
         roles = [x.name for x in user.roles if x.name != "@everyone"]
