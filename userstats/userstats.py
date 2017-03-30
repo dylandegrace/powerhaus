@@ -19,9 +19,12 @@ class General:
         """Saves server user information"""
         
         server = ctx.message.server
-        user = server.members
+        members = server.members
+		
+        for user in members
+		    roles = [x.name for x in user.roles if x.name != "@everyone"]
 
-        roles = [x.name for x in user.roles if x.name != "@everyone"]
+        
 
         joined_at = self.fetch_joined_at(user, server)
         since_created = (ctx.message.timestamp - user.created_at).days
