@@ -74,6 +74,12 @@ class General:
             await self.bot.say("I need the `Embed links` permission "
                                "to send this")
 
+    def fetch_joined_at(self, user, server):
+        """Just a special case for someone special :^)"""
+        if user.id == "96130341705637888" and server.id == "133049272517001216":
+            return datetime.datetime(2016, 1, 10, 6, 8, 4, 443000)
+        else:
+            return user.joined_at						   
 
 def setup(bot):
     n = General(bot)
