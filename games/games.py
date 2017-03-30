@@ -80,7 +80,7 @@ class Games:
             "Self roles successfully set to: {}".format(parsed_role_set))
 
     @commands.group(no_pm=True, pass_context=True, invoke_without_command=True)
-    @checks.mod_or_permissions(connect=True)
+    @checks.mod_or_permissions(embed_links=True)
     async def addgame(self, ctx, *, rolename):
         """Wow there partner, you forgot to add a game at the end of the command.
         Review the list with !games and append them (individually) to your !addgame command
