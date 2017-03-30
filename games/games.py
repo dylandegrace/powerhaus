@@ -94,6 +94,9 @@ class Games:
                                " server.")
             return
 
+        if embed_links is False:
+            await self.bot.whisper('You must first accept the rules in the welcome channel before adding any games.')
+
         f = self._role_from_string
         roles = [f(server, r) for r in role_names if r is not None]
 
