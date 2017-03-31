@@ -110,15 +110,15 @@ class Games:
                         author.name))
           	        await self.bot.say("I don't have permissions to do that.")
                 except AttributeError:  # role_to_add is NoneType
-      		        log.debug("{} not found as settable on {}".format(rolename,
+      	            log.debug("{} not found as settable on {}".format(rolename,
                                                               server.id))
       	            await self.bot.say("That game isn't one that is supported. Please see `!games` for the full list.")
-     		    else:
-     		        log.debug("Role {} added to {} on {}".format(rolename, author.name,
+                else:
+                    log.debug("Role {} added to {} on {}".format(rolename, author.name,
                                                      server.id))
                     gameSuccess = "Game **{}** successfully added. You now have access to new channels.".format(rolename)											 
                     await self.bot.say(gameSuccess)
-         		    """await self.bot.whisper('hey it worked')"""
+                    """await self.bot.whisper('hey it worked')"""
 
     @addgame.command(no_pm=True, pass_context=True, name="remove")
     async def addgame_remove(self, ctx, *, rolename):
