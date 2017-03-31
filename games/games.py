@@ -99,10 +99,10 @@ class Games:
         role_to_add = self._role_from_string(server, rolename, roles=roles)
 
         try:
-            if checks.mod_or_permissions(embed_links=True):
-                await self.bot.add_roles(author, role_to_add)                
+            if checks.role_or_permissions(ctx, lambda r: r.name.lower() in ('Member'):
+                await self.bot.add_roles(author, role_to_add)
             else:
-                await self.bot.whisper('Oops. You have to accept the rules first in the #welcome channel before you add any games.')
+                await self.bot.whisper('Oops. You have to accept the rules first in the #welcome channel before you add any games.')                
         except discord.errors.Forbidden:
             log.debug("{} just tried to add a game but I was forbidden".format(
                 author.name))
