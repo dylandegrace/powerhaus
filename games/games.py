@@ -99,7 +99,7 @@ class Games:
         role_to_add = self._role_from_string(server, rolename, roles=roles)
 
         try:
-            if checks.role_or_permissions(ctx, lambda r: r.name.lower() in ('Member'):
+            if checks.role_or_permissions(ctx, lambda r: r.name.lower() in ('Member')):
                 await self.bot.add_roles(author, role_to_add)
             else:
                 await self.bot.whisper('Oops. You have to accept the rules first in the #welcome channel before you add any games.')                
