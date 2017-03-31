@@ -110,7 +110,8 @@ class Games:
             await self.bot.say("That game isn't one that is supported. Please see `!games` for the full list.")
         else:
             if checks.mod_or_permissions(embed_links=False):
-                await self.bot.whisper('hey it worked')
+                await self.bot.whisper('Oops. You have to accept the rules first in the #welcome channel before you add any games.')
+                return
             else:
                 log.debug("Role {} added to {} on {}".format(rolename, author.name,
                                                          server.id))
