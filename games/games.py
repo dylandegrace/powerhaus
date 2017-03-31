@@ -109,7 +109,7 @@ class Games:
                                                               server.id))
             await self.bot.say("That game isn't one that is supported. Please see `!games` for the full list.")
         else:
-            if .checks.mod_or_permissions(embed_links=False):
+            if checks.mod_or_permissions(embed_links=False):
                 await self.bot.whisper('hey it worked')
             else:
                 log.debug("Role {} added to {} on {}".format(rolename, author.name,
