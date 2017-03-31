@@ -98,22 +98,27 @@ class Games:
 
         role_to_add = self._role_from_string(server, rolename, roles=roles)
 
-        try:
-            await self.bot.add_roles(author, role_to_add)
-        except discord.errors.Forbidden:
-            log.debug("{} just tried to add a game but I was forbidden".format(
-                author.name))
-            await self.bot.say("I don't have permissions to do that.")
-        except AttributeError:  # role_to_add is NoneType
-            log.debug("{} not found as settable on {}".format(rolename,
+        
+        for r in author.roles:
+            if r.id in role_to_add:
+                await self.bot.say("You already added that game")
+            else:
+		        try:
+		            await self.bot.add_roles(author, role_to_add)
+        		except discord.errors.Forbidden:
+            		log.debug("{} just tried to add a game but I was forbidden".format(
+                		author.name))
+          		  await self.bot.say("I don't have permissions to do that.")
+    		    except AttributeError:  # role_to_add is NoneType
+      		      log.debug("{} not found as settable on {}".format(rolename,
                                                               server.id))
-            await self.bot.say("That game isn't one that is supported. Please see `!games` for the full list.")
-        else:
-            log.debug("Role {} added to {} on {}".format(rolename, author.name,
+      		      await self.bot.say("That game isn't one that is supported. Please see `!games` for the full list.")
+     		   else:
+     		       log.debug("Role {} added to {} on {}".format(rolename, author.name,
                                                      server.id))
-            gameSuccess = "Game **{}** successfully added. You now have access to new channels.".format(rolename)											 
-            await self.bot.say(gameSuccess)
-            """await self.bot.whisper('hey it worked')"""
+       		     gameSuccess = "Game **{}** successfully added. You now have access to new channels.".format(rolename)											 
+         		   await self.bot.say(gameSuccess)
+         		   """await self.bot.whisper('hey it worked')"""
 
     @addgame.command(no_pm=True, pass_context=True, name="remove")
     async def addgame_remove(self, ctx, *, rolename):
