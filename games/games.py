@@ -108,14 +108,15 @@ class Games:
             log.debug("{} not found as settable on {}".format(rolename,
                                                               server.id))
             await self.bot.say("That game isn't one that is supported. Please see `!games` for the full list.")
-        except embed_links is False:
-            await self.bot.whisper('You must accept the rules in the welcome channel before adding any games')
         else:
-            log.debug("Role {} added to {} on {}".format(rolename, author.name,
+            if .checks.mod_or_permissions(embed_links=False):
+                await self.bot.whisper('hey it worked')
+            else:
+                log.debug("Role {} added to {} on {}".format(rolename, author.name,
                                                          server.id))
-            gameSuccess = "Game **{}** successfully added. You now have access to new channels.".format(rolename)											 
-            await self.bot.say(gameSuccess)
-            """await self.bot.whisper('hey it worked')"""
+                gameSuccess = "Game **{}** successfully added. You now have access to new channels.".format(rolename)											 
+                await self.bot.say(gameSuccess)
+                """await self.bot.whisper('hey it worked')"""
 
     @addgame.command(no_pm=True, pass_context=True, name="remove")
     async def addgame_remove(self, ctx, *, rolename):
