@@ -101,7 +101,6 @@ class Games:
         try:
             if checks.mod_or_permissions(embed_links=False):
                 await self.bot.whisper('Oops. You have to accept the rules first in the #welcome channel before you add any games.')
-                return
             else:
                 await self.bot.add_roles(author, role_to_add)
         except discord.errors.Forbidden:
