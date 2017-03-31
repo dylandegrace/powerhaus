@@ -99,7 +99,7 @@ class Games:
         role_to_add = self._role_from_string(server, rolename, roles=roles)
 
         if role_to_add in author.roles:
-            await self.bot.say("whatttt. hold up")    
+            await self.bot.say("Wow there buckaroo. You already added that game. :redpants:290215309443465216 Check your channels on the left and they'll be there.")    
             return			
 		
         try:
