@@ -99,7 +99,7 @@ class Games:
         role_to_add = self._role_from_string(server, rolename, roles=roles)
 
         try:
-		    if checks.mod_or_permissions(embed_links=False):
+            if checks.mod_or_permissions(embed_links=False):
                 await self.bot.whisper('Oops. You have to accept the rules first in the #welcome channel before you add any games.')
                 return
             else:
