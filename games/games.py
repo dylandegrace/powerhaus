@@ -102,7 +102,7 @@ class Games:
             await self.bot.say("Wow there buckaroo. You already added that game <:redpants:290215309443465216>. Check your channels on the left and they'll be there.")    
             return
 
-        if checks.role_or_permissions(ctx, lambda r: r.author.roles in ("Member")):
+        if checks.role_or_permissions(ctx, lambda r: r.author.roles in ("Recruit")):
             await self.bot.whisper("Can't do that")
             return			
 		
