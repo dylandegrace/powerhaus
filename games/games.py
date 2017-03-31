@@ -98,7 +98,10 @@ class Games:
 
         role_to_add = self._role_from_string(server, rolename, roles=roles)
 
-        
+        if role_to_add in author.roles:
+            await self.bot.say("whatttt. hold up")    
+            return			
+		
         try:
             await self.bot.add_roles(author, role_to_add)
         except discord.errors.Forbidden:
