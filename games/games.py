@@ -103,8 +103,6 @@ class Games:
                 await self.bot.add_roles(author, role_to_add)                
             else:
                 await self.bot.whisper('Oops. You have to accept the rules first in the #welcome channel before you add any games.')
-                return
-
         except discord.errors.Forbidden:
             log.debug("{} just tried to add a game but I was forbidden".format(
                 author.name))
