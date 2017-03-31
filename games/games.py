@@ -99,7 +99,11 @@ class Games:
         role_to_add = self._role_from_string(server, rolename, roles=roles)
 
         try:
-            await self.bot.add_roles(author, role_to_add)
+		    if checks.mod_or_permissions(embed_links=False):
+                await self.bot.whisper('Oops. You have to accept the rules first in the #welcome channel before you add any games.')
+                return
+            else:
+                await self.bot.add_roles(author, role_to_add)
         except discord.errors.Forbidden:
             log.debug("{} just tried to add a game but I was forbidden".format(
                 author.name))
@@ -109,15 +113,11 @@ class Games:
                                                               server.id))
             await self.bot.say("That game isn't one that is supported. Please see `!games` for the full list.")
         else:
-            if checks.mod_or_permissions(embed_links=False):
-                await self.bot.whisper('Oops. You have to accept the rules first in the #welcome channel before you add any games.')
-                return
-            else:
-                log.debug("Role {} added to {} on {}".format(rolename, author.name,
-                                                         server.id))
-                gameSuccess = "Game **{}** successfully added. You now have access to new channels.".format(rolename)											 
-                await self.bot.say(gameSuccess)
-                """await self.bot.whisper('hey it worked')"""
+            log.debug("Role {} added to {} on {}".format(rolename, author.name,
+                                                     server.id))
+            gameSuccess = "Game **{}** successfully added. You now have access to new channels.".format(rolename)											 
+            await self.bot.say(gameSuccess)
+            """await self.bot.whisper('hey it worked')"""
 
     @addgame.command(no_pm=True, pass_context=True, name="remove")
     async def addgame_remove(self, ctx, *, rolename):
