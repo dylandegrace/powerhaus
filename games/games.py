@@ -84,8 +84,8 @@ class Games:
         author = ctx.message.author
         recruit = [x for x in author.roles if x.id == "274352206918975488"]
         if recruit[0].name == "Recruit":
-            self.bot.add_roles(author, "256970892448497664")
-            self.bot.remove_roles(author, "274352206918975488")
+            self.bot.add_roles(author, "Member")
+            self.bot.remove_roles(author, "Recruit")
             await self.bot.say("It should have worked...Check it")
         else:
             await self.bot.say("You already accepted the rules!")
