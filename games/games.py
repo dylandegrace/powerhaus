@@ -82,7 +82,7 @@ class Games:
     @commands.command(no_pm=True, pass_context=True)
     async def accept(set, ctx):
         author = ctx.message.author
-        if "Recruit" in roles:
+        if "Recruit" in author.roles:
             add_roles(author, "Member")
             remove_roles(author, "Recruit")
 
