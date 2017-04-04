@@ -84,7 +84,7 @@ class Games:
     @commands.command(no_pm=True, pass_context=True)
     async def accepttest(self, ctx):
         author = ctx.message.author
-        recruit = [x for x in author.roles if x.id == "274352206918975488"]
+        recruit = [x for x in author.roles if x.name == "Recruit"]
         memberRole = discord.utils.get(ctx.message.server.roles, name="Member")
         recruitRole = discord.utils.get(ctx.message.server.roles, name="Recruit")
         if recruit[0].name == "Recruit":
