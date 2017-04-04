@@ -82,7 +82,7 @@ class Games:
     @commands.command(no_pm=True, pass_context=True)
     async def accepttest(self, ctx):
         author = ctx.message.author
-		r = author.roles
+        r = author.roles
         if "274352206918975488" in r.id:
             add_roles(author, "256970892448497664")
             remove_roles(author, "274352206918975488")
