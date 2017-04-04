@@ -80,7 +80,7 @@ class Games:
             "Self roles successfully set to: {}".format(parsed_role_set))
 			
     @commands.command(no_pm=True, pass_context=True)
-    async def accept(set, ctx):
+    async def accepttest(set, ctx):
         author = ctx.message.author
         if "Recruit" in author.roles:
             add_roles(author, "Member")
