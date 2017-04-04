@@ -84,7 +84,7 @@ class Games:
     @commands.command(no_pm=True, pass_context=True)
     async def accepttest(self, ctx):
         author = ctx.message.author
-        acceptmsg = self.bot.get_message(ctx.message.channel, ctx.message.id)
+        acceptmsg = ctx.message
         recruit = [x for x in author.roles if x.name == "Recruit"]
         memberRole = discord.utils.get(ctx.message.server.roles, name="Member")
         recruitRole = discord.utils.get(ctx.message.server.roles, name="Recruit")
@@ -93,9 +93,9 @@ class Games:
             await self.bot.remove_roles(author, recruitRole)
             await self.bot.whisper("Thank you for accepting the rules.")
         else:
-                await self.bot.say("You already accepted the rules!")
-
-        await self.bot.delete_message(acceptmsg)
+                await self.bot.whisper("You already accepted the rules!")
+        await self.bot.say(acceptmsg)
+        await self.bot.say(acceptmsg[0])
 
     @commands.group(no_pm=True, pass_context=True, invoke_without_command=True)
     async def addgame(self, ctx, *, rolename):
