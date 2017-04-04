@@ -92,9 +92,10 @@ class Games:
             await self.bot.add_roles(author, memberRole)
             await self.bot.remove_roles(author, recruitRole)
             await self.bot.whisper("Thank you for accepting the rules.")
-            await self.bot.delete_message(acceptmsg)
         else:
-            await self.bot.say("You already accepted the rules!")
+                await self.bot.say("You already accepted the rules!")
+
+        await self.bot.delete_message(acceptmsg)
 
     @commands.group(no_pm=True, pass_context=True, invoke_without_command=True)
     async def addgame(self, ctx, *, rolename):
