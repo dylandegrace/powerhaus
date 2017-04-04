@@ -10,6 +10,8 @@ import logging
 import os
 
 
+
+
 log = logging.getLogger("red.games")
 
 
@@ -83,9 +85,11 @@ class Games:
     async def accepttest(self, ctx):
         author = ctx.message.author
         recruit = [x for x in author.roles if x.id == "274352206918975488"]
+        memberRole = discord.utils.get(ctx.message.server.roles, name="Member")
+        recruitRole = discord.utils.get(ctx.message.server.roles, name="Recruit")
         if recruit[0].name == "Recruit":
-            self.bot.add_roles(author, "Member")
-            self.bot.remove_roles(author, "Recruit")
+            await self.bot.add_roles(author, memberRole)
+            await self.bot.remove_roles(author, recruitRole)
             await self.bot.say("It should have worked...Check it")
         else:
             await self.bot.say("You already accepted the rules!")
