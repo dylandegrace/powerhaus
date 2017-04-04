@@ -82,7 +82,7 @@ class Games:
             "Self roles successfully set to: {}".format(parsed_role_set))
 			
     @commands.command(no_pm=True, pass_context=True)
-    async def accepttest(self, ctx):
+    async def accept(self, ctx):
         author = ctx.message.author
         channel = ctx.message.channel
         server = author.server
