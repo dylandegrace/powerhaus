@@ -87,7 +87,7 @@ class Games:
         recruit = [x for x in author.roles if x.name == "Recruit"]
         memberRole = discord.utils.get(ctx.message.server.roles, name="Member")
         recruitRole = discord.utils.get(ctx.message.server.roles, name="Recruit")
-        if recruit[0].name == "Recruit":
+        if (recruit and recruit[0].name == "Recruit"):
             await self.bot.add_roles(author, memberRole)
             await self.bot.remove_roles(author, recruitRole)
             await self.bot.say("It should have worked...Check it")
