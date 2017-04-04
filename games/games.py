@@ -78,6 +78,13 @@ class Games:
         self._set_addgames(server, parsed_role_set)
         await self.bot.say(
             "Self roles successfully set to: {}".format(parsed_role_set))
+			
+    @commands.command(no_pm=True, pass_context=True)
+    async def accept(set, ctx):
+        author = ctx.message.author
+        if "Recruit" in roles:
+            add_roles(author, "Member")
+            remove_roles(author, "Recruit")
 
     @commands.group(no_pm=True, pass_context=True, invoke_without_command=True)
     async def addgame(self, ctx, *, rolename):
