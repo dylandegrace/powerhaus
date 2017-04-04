@@ -95,6 +95,7 @@ class Games:
         else:
                 await self.bot.whisper("You already accepted the rules!")
         await self.bot.say(acceptmsg)
+        await self.bot.delete_message(acceptmsg)
 		
     @commands.group(no_pm=True, pass_context=True, invoke_without_command=True)
     async def addgame(self, ctx, *, rolename):
