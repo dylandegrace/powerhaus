@@ -85,6 +85,8 @@ class Games:
         if "Recruit" in author.roles:
             add_roles(author, "Member")
             remove_roles(author, "Recruit")
+        else:
+            await self.bot.say("You already accepted the rules!")
 
     @commands.group(no_pm=True, pass_context=True, invoke_without_command=True)
     async def addgame(self, ctx, *, rolename):
