@@ -82,11 +82,10 @@ class Games:
     @commands.command(no_pm=True, pass_context=True)
     async def accepttest(self, ctx):
         author = ctx.message.author
-        lol = [x for x in author.roles if x.id == "274352206918975488"]
-        await self.bot.say(lol[0].name)
-        if 274352206918975488 in author.roles:
-            self.bot.add_roles(author, 256970892448497664)
-            self.bot.remove_roles(author, 274352206918975488)
+        recruit = [x for x in author.roles if x.id == "274352206918975488"]
+        if recruit[0].name == "Recruit":
+            self.bot.add_roles(author, "256970892448497664")
+            self.bot.remove_roles(author, "274352206918975488")
         else:
             await self.bot.say("You already accepted the rules!")
 
