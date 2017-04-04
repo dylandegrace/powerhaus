@@ -82,7 +82,7 @@ class Games:
     @commands.command(no_pm=True, pass_context=True)
     async def accepttest(self, ctx):
         author = ctx.message.author
-        lol = [x for x in author.roles if x.id == 274352206918975488]
+        lol = [x for x in author.roles if x.id == "274352206918975488"]
         await self.bot.say(lol)
         if 274352206918975488 in author.roles:
             self.bot.add_roles(author, 256970892448497664)
