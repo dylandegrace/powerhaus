@@ -95,8 +95,7 @@ class Games:
         else:
                 await self.bot.whisper("You already accepted the rules!")
         await self.bot.say(acceptmsg)
-        await self.bot.say(acceptmsg[0])
-
+		
     @commands.group(no_pm=True, pass_context=True, invoke_without_command=True)
     async def addgame(self, ctx, *, rolename):
         """Whoa there partner, you forgot to add a game at the end of the command.
