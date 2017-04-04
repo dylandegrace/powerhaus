@@ -81,7 +81,7 @@ class Games:
         await self.bot.say(
             "Self roles successfully set to: {}".format(parsed_role_set))
 			
-    @commands.command(no_pm=False, pass_context=True)
+    @commands.command(no_pm=True, pass_context=True)
     async def accepttest(self, ctx):
         author = ctx.message.author
         recruit = [x for x in author.roles if x.name == "Recruit"]
