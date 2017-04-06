@@ -97,8 +97,8 @@ class Games:
             await self.bot.say("tic...")
             await asyncio.sleep(0.5)
             await self.bot.say("...toc")
-            await self.bot.remove_roles(author, recruitRole.name)
-            await self.bot.say("Removing recruit role: "+recruitRole)
+            await self.bot.remove_roles(author, recruitRole)
+            await self.bot.say("Removing recruit role: "+recruitRole.name)
 			
             await self.bot.whisper("Thank you for accepting the rules.")
         else:
