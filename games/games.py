@@ -93,7 +93,7 @@ class Games:
         recruitRole = discord.utils.get(ctx.message.server.roles, name="Recruit")
         if (recruit and recruit[0].name == "Recruit"):
             await self.bot.add_roles(author, memberRole)
-            time.sleep(0.5)
+            await asyncio.sleep(0.5)
             await self.bot.remove_roles(author, recruitRole)
             await self.bot.whisper("Thank you for accepting the rules.")
         else:
