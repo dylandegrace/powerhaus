@@ -23,8 +23,7 @@ class CustomRoles:
 
         lead_role = "Division Lead"
         lead_check = lambda r: r.name.lower() == lead_role.lower()
-        test = checks.role_or_permissions(context, lead_check, manage_roles=True)
-        test2 = checks.role_or_permissions(context, lead_check, manage_roles = False)
+        test = checks.role_or_permissions(context, lead_check)
 				
         if re.search(r'^(?:[0-9a-fA-F]{3}){1,2}$', color):
             name = ' '.join(role_name)
@@ -38,8 +37,7 @@ class CustomRoles:
         else:
             message = '`Not a valid heximal color`'
         await self.bot.say(message)
-        await self.bot.say("context, lead_check, manage_roles=True  ==" + str(test))
-        await self.bot.say("context, lead_check, manage_roles=False  ==" + str(test2))
+        await self.bot.say("context, lead_check  ==" + str(test))
 
     @_role.command(pass_context=True, no_pm=True, name='remove', aliases=['delete'])
     @checks.mod_or_permissions(manage_roles=True)
