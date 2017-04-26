@@ -16,7 +16,7 @@ class CustomRoles:
             await send_cmd_help(context)
 
     @_role.command(pass_context=True, no_pm=True, name='add', aliases=['new'])
-    @checks.role_or_permissions(ctx, lambda r: r.name.lower() in (Division Lead, Competitive Team Manager))
+    @checks.mod_or_permissions(manage_roles=True)
     async def _add(self, context, color, *role_name):
         """Add a role
         Example: role add ff0000 Red Role"""
@@ -60,7 +60,6 @@ class CustomRoles:
         await self.bot.say(message)
 
     @_role.command(pass_context=True, no_pm=True, name='apply')
-    @checks.role_or_permissions(ctx, lambda r: r.name.lower() in (Division Lead, Competitive Team Manager))
     async def _apply(self, context, *role_name):
         """Apply a role"""
         server = context.message.server
