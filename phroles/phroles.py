@@ -36,7 +36,7 @@ class CustomRoles:
         else:
             message = '`Not a valid heximal color`'
         await self.bot.say(message)
-        await self.bot.say(lead_check)
+        await self.bot.say(lead_check[0])
 
     @_role.command(pass_context=True, no_pm=True, name='remove', aliases=['delete'])
     @checks.mod_or_permissions(manage_roles=True)
