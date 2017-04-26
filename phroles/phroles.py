@@ -21,7 +21,7 @@ class CustomRoles:
         Example: role add ff0000 Red Role"""
         server = context.message.server
 
-        lead_role = settings.get_server_admin(server)
+        lead_role = "Division Lead"
         lead_check = lambda r: r.name.lower() == lead_role.lower()
         checks.role_or_permissions(ctx, lead_check)
 				
