@@ -16,7 +16,7 @@ class CustomRoles:
             await send_cmd_help(context)
 
     @_role.command(pass_context=True, no_pm=True, name='add', aliases=['new'])
-    @checks.role_or_permissions(ctx, "Division Lead")
+    @checks.role_or_permissions(ctx, checks="Division Lead")
     async def _add(self, context, color, *role_name):
         """Add a role
         Example: role add ff0000 Red Role"""
