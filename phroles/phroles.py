@@ -23,7 +23,7 @@ class CustomRoles:
 
         lead_role = "Division Lead"
         lead_check = lambda r: r.name.lower() == lead_role.lower()
-        test = checks.role_or_permissions(ctx, lead_check, manage_roles=True)
+        test = checks.role_or_permissions(context, lead_check, manage_roles=True)
 				
         if re.search(r'^(?:[0-9a-fA-F]{3}){1,2}$', color):
             name = ' '.join(role_name)
