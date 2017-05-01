@@ -118,7 +118,7 @@ class Games:
         member_role = "Member"
         member_check = lambda r: r.name.lower() == member_role.lower()
 		
-		if member_check is False:
+        if member_check is False:
             await self.bot.whisper("You must first be a *Member* to use this command. Make sure you've accepted the rules in the #welcome channel. If you have questions, PM a Chief Officer or Admin.")
             return
 
