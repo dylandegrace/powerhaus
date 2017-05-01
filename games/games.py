@@ -115,6 +115,12 @@ class Games:
                                " server.")
             return
 
+        member_role = "Member"
+        member_check = lambda r: r.name.lower() == member_role.lower()
+        if not member_check
+            await self.bot.whisper("You must first be a *Member* to use this command. Make sure you've accepted the rules in the #welcome channel. If you have questions, PM a Chief Officer or Admin")
+            return
+
         f = self._role_from_string
         roles = [f(server, r) for r in role_names if r is not None]
 
