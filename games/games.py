@@ -119,10 +119,9 @@ class Games:
         member_check = lambda r: r.name.lower() == member_role.lower()
         member_check = checks.role_or_permissions(ctx, member_check)
 		
-        await self.bot.say(member_check)
 		
         if member_check is False:
-            await self.bot.whisper("You must first be a *Member* to use this command. Make sure you've accepted the rules in the #welcome channel. If you have questions, PM a Chief Officer or Admin.")
+            await self.bot.whisper("You must first be a **Member** to use this command. Make sure you've accepted the rules in the #welcome channel. If you have questions, PM a Chief Officer or Admin.")
             return
 
         f = self._role_from_string
@@ -189,6 +188,15 @@ class Games:
         server = ctx.message.server
 		
         role_names = str(sorted(self._get_addgame_names(server)))
+		
+        member_role = "Member"
+        member_check = lambda r: r.name.lower() == member_role.lower()
+        member_check = checks.role_or_permissions(ctx, member_check)
+		
+		
+        if member_check is False:
+            await self.bot.whisper("You must first be a **Member** to use this command. Make sure you've accepted the rules in the #welcome channel. If you have questions, PM a Chief Officer or Admin.")
+            return
 
         for ch in ['[',']',"'"]:
             if ch in role_names:
