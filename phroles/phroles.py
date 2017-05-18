@@ -125,11 +125,9 @@ class CustomRoles:
 		
         embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
         embed.type = "rich"
-        embed.title = "**Member count**"
-        embed.add_field(name="message title", value=message) # Can add multiple fields.
+        embed.title = "**MEMBER COUNT**"
+        embed.add_field(name="", value=message) # Can add multiple fields.
         await self.bot.say(embed=embed)
-		
-        await self.bot.say(message)
 
 
 def setup(bot):
