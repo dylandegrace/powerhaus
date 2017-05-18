@@ -117,7 +117,7 @@ class CustomRoles:
         """List all available roles"""
         server = context.message.server
 		
-        message = '\nGame role count:\n'
+        message = '\n'
 		
         for role in server.roles:
             if role.permissions.value < 1:
@@ -126,7 +126,7 @@ class CustomRoles:
         embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
         embed.type = "rich"
         embed.title = "**MEMBER COUNT**"
-        embed.add_field(name="", value=message) # Can add multiple fields.
+        embed.add_field(name="People have added the following games:", value=message) # Can add multiple fields.
         await self.bot.say(embed=embed)
 
 
