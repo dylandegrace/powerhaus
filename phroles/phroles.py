@@ -116,11 +116,20 @@ class CustomRoles:
     async def _list(self, context):
         """List all available roles"""
         server = context.message.server
+		
         message = '```\nGame role count:\n'
+		
         for role in server.roles:
             if role.permissions.value < 1:
                 message += '\n{} ({})'.format(role.name, len([member for member in server.members if ([r for r in member.roles if r.name == role.name])]))
         message += '```'
+		
+        embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
+        embed.type = "rich"
+        embed.title = "**Member count**"
+        embed.add_field(name="", value=message) # Can add multiple fields.
+        await self.bot.say(embed=embed)
+		
         await self.bot.say(message)
 
 
