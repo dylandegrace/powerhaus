@@ -112,6 +112,7 @@ class CustomRoles:
         await self.bot.say(message)
 
     @_role.command(pass_context=True, no_pm=True, name='list')
+    @checks.mod_or_permissions(manage_roles=True)
     async def _list(self, context):
         """List all available roles"""
         server = context.message.server
