@@ -122,7 +122,7 @@ class CustomRoles:
         for role in server.roles:
             if role.name == 'Member':
                 messagetotal = '\n{} ({})'.format(role.name, len([member for member in server.members if ([r for r in member.roles if r.name == role.name])]))
-            if role.permissions.value < 1 and role.name not in ['@everyone', 'Streaming']:
+            if role.permissions.value < 1 and role.name not in ['@everyone', 'Streaming'] and not role.name.startswith( 'OW' ):
                 message += '\n{} ({})'.format(role.name, len([member for member in server.members if ([r for r in member.roles if r.name == role.name])]))
 		
         embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
