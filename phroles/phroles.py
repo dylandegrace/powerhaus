@@ -120,7 +120,7 @@ class CustomRoles:
         message = '\n'
 		
         for role in server.roles:
-            if role.name = 'Member':
+            if role.name == 'Member':
                 messagetotal = '\n{} ({})'.format(role.name, len([member for member in server.members if ([r for r in member.roles if r.name == role.name])]))
             if role.permissions.value < 1 and role.name != '@everyone':
                 message += '\n{} ({})'.format(role.name, len([member for member in server.members if ([r for r in member.roles if r.name == role.name])]))
