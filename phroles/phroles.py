@@ -120,12 +120,15 @@ class CustomRoles:
         message = '\n'
 		
         for role in server.roles:
+            if role.name = 'Member':
+                message_total = '\n{} ({})'.format(role.name, len([member for member in server.members if ([r for r in member.roles if r.name == role.name])]))
             if role.permissions.value < 1 and role.name != '@everyone':
                 message += '\n{} ({})'.format(role.name, len([member for member in server.members if ([r for r in member.roles if r.name == role.name])]))
 		
         embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
         embed.type = "rich"
-        embed.title = "**MEMBER COUNT**"
+        embed.title = "**MEMBER INFORMATION**"
+        embed.add_field(name="Total member count (those who typed !accept)", value=message_total) # Can add multiple fields.
         embed.add_field(name="People have added the following games:", value=message) # Can add multiple fields.
         await self.bot.say(embed=embed)
 
