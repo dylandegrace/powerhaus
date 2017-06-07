@@ -161,23 +161,29 @@ class CustomRoles:
     @_team.command(pass_context=True, no_pm=True, name='add', aliases=['new'])
     async def _add(self, context, *, role_name):
         """Add a team
-        Example: role add ff0000 Red Role"""
+        Example: !team add Team OW-Black"""
         server = context.message.server
 
         lead_role = "Division Lead"
+        manager_role = "Team Manager"
         lead_check = lambda r: r.name.lower() == lead_role.lower()
+        manager_check = lambda r:r.name.lower() == manager_role.lower()
         test = checks.role_or_permissions(context, lead_check)
         				
         name = ' '.join(role_name)
         name = role_name
-        color = 'ff0000'
+        color = '99aab5'
         color = discord.Color(int(color, 16))
         permissions = discord.Permissions(permissions=0)
-        try:
-            await self.bot.create_role(server, name=name, color=color, permissions=permissions, hoist=False)
-            message = 'New role made'
-        except discord.Forbidden:
-            message = 'I have no permissions to do that. Please give me role managing permissions.'
+		if lead_check or manager_check:
+		
+			try:
+				await self.bot.create_role(server, name=name, color=color, permissions=permissions, hoist=False)
+				message = 'New role made'
+			except discord.Forbidden:
+				message = 'I have no permissions to do that. Please give me role managing permissions.'
+        else:
+		    message = "You don't have proper permissions"
 
         await self.bot.say(message)
         await self.bot.say("context, lead_check  ==" + str(test))			
