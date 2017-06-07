@@ -183,7 +183,7 @@ class CustomRoles:
 			except discord.Forbidden:
 				message = 'I have no permissions to do that. Please give me role managing permissions.'
         else:
-		    message = "You don't have proper permissions"
+            message = "You don't have proper permissions"
 
         await self.bot.say(message)
         await self.bot.say("context, lead_check  ==" + str(test))			
