@@ -113,8 +113,8 @@ class CustomRoles:
 
     @_role.command(pass_context=True, no_pm=True, name='list')
     @checks.mod_or_permissions(manage_roles=True)
-    async def _list(self, context):
-        """List all available roles"""
+    async def _games(self, context):
+        """List all available games and their member count"""
         server = context.message.server
 		
         message = '\n'
@@ -122,7 +122,7 @@ class CustomRoles:
         for role in server.roles:
             if role.name == 'Member':
                 messagetotal = '\n{} ({})'.format(role.name, len([member for member in server.members if ([r for r in member.roles if r.name == role.name])]))
-            if role.permissions.value < 1 and role.name not in ['@everyone', 'Streaming'] and not role.name.startswith( 'OW' ):
+            if role.permissions.value < 1 and role.name not in ['@everyone', 'Streaming'] and not role.name.startswith( 'Team' ):
                 message += '\n{} ({})'.format(role.name, len([member for member in server.members if ([r for r in member.roles if r.name == role.name])]))
 		
         embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
@@ -130,6 +130,26 @@ class CustomRoles:
         embed.title = "**MEMBER INFORMATION**"
         embed.add_field(name="Total member count (those who typed !accept)", value=messagetotal) # Can add multiple fields.
         embed.add_field(name="People have added the following games:", value=message) # Can add multiple fields.
+        await self.bot.say(embed=embed)
+		
+    @_role.command(pass_context=True, no_pm=True, name='list')
+    @checks.mod_or_permissions(manage_roles=True)
+    async def _teams(self, context):
+        """List all available games and their member count"""
+        server = context.message.server
+		
+        message = '\n'
+		
+        for role in server.roles:
+            if role.name == 'Member':
+                messagetotal = '\n{} ({})'.format(role.name, len([member for member in server.members if ([r for r in member.roles if r.name == role.name])]))
+            if role.permissions.value < 1 and role.name.startswith( 'Team' ):
+                message += '\n{} ({})'.format(role.name, len([member for member in server.members if ([r for r in member.roles if r.name == role.name])]))
+		
+        embed = discord.Embed(colour=0xdb941a) # Can use discord.Colour() as well
+        embed.type = "rich"
+        embed.title = "**TEAM INFORMATION**"
+        embed.add_field(name="All available team roles are as follows:", value=message) # Can add multiple fields.
         await self.bot.say(embed=embed)
 
 
