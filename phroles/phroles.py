@@ -111,7 +111,7 @@ class CustomRoles:
             # message = 'There is no such role on this server'
         # await self.bot.say(message)
 
-    @_role.command(pass_context=True, no_pm=True, name='listgames')
+    @_role.command(pass_context=True, no_pm=True, name='games')
     @checks.mod_or_permissions(manage_roles=True)
     async def _games(self, context):
         """List all available games and their member count"""
@@ -132,7 +132,7 @@ class CustomRoles:
         embed.add_field(name="People have added the following games:", value=message) # Can add multiple fields.
         await self.bot.say(embed=embed)
 		
-    @_role.command(pass_context=True, no_pm=True, name='listteams')
+    @_role.command(pass_context=True, no_pm=True, name='teams')
     @checks.mod_or_permissions(manage_roles=True)
     async def _teams(self, context):
         """List all current team roles and their member count"""
