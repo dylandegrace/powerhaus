@@ -159,7 +159,7 @@ class CustomRoles:
             await send_cmd_help(context)
 			
     @_team.command(pass_context=True, no_pm=True, name='add', aliases=['new'])
-    async def _add(self, context, *role_name):
+    async def _add(self, context, role_name):
         """Add a team
         Example: role add ff0000 Red Role"""
         server = context.message.server
