@@ -159,26 +159,25 @@ class CustomRoles:
             await send_cmd_help(context)
 			
     @_team.command(pass_context=True, no_pm=True, name='add', aliases=['new'])
-    async def _add(self, context, color, *role_name):
-        """Add a role
+    async def _add(self, context, *role_name):
+        """Add a team
         Example: role add ff0000 Red Role"""
         server = context.message.server
 
         lead_role = "Division Lead"
         lead_check = lambda r: r.name.lower() == lead_role.lower()
         test = checks.role_or_permissions(context, lead_check)
-				
-        if re.search(r'^(?:[0-9a-fA-F]{3}){1,2}$', color):
-            name = ' '.join(role_name)
-            color = discord.Color(int(color, 16))
-            permissions = discord.Permissions(permissions=0)
-            try:
-                await self.bot.create_role(server, name=name, color=color, permissions=permissions, hoist=False)
-                message = 'New role made'
-            except discord.Forbidden:
-                message = 'I have no permissions to do that. Please give me role managing permissions.'
-        else:
-            message = '`Not a valid heximal color`'
+        				
+        name = ' '.join(role_name)
+        color = 'ff0000'
+        color = discord.Color(int(color, 16))
+        permissions = discord.Permissions(permissions=0)
+        try:
+            await self.bot.create_role(server, name=name, color=color, permissions=permissions, hoist=False)
+            message = 'New role made'
+        except discord.Forbidden:
+            message = 'I have no permissions to do that. Please give me role managing permissions.'
+
         await self.bot.say(message)
         await self.bot.say("context, lead_check  ==" + str(test))			
 		
