@@ -169,7 +169,7 @@ class CustomRoles:
         test = checks.role_or_permissions(context, lead_check)
         				
         name = ' '.join(role_name)
-		name = role_name
+        name = role_name
         color = 'ff0000'
         color = discord.Color(int(color, 16))
         permissions = discord.Permissions(permissions=0)
