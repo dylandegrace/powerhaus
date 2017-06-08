@@ -166,16 +166,15 @@ class CustomRoles:
 
         lead_role = "Division Lead"
         manager_role = "Team Manager"
-        lead_check = lambda r: r.name.lower() == lead_role.lower()
-        manager_check = lambda r: r.name.lower() == manager_role.lower()
-        test = checks.role_or_permissions(context, lead_check)
-        test2 = checks.role_or_permissions(context, manager_check)
+
+        lead_check = checks.role_or_permissions(context, lambda r: r.name.lower() == lead_role.lower())
+        manager_check = checks.role_or_permissions(context, lambda r: r.name.lower() == manager_role.lower())
         
-        if test and test2:
+        if lead_check and manager_check:
             message1 = "I am a Division Lead and Team Manager"
-        elif test and not test2:
+        elif lead_check and not manager_check:
             message1 = "I am only a Division Lead"
-        elif not test and test2:
+        elif not lead_check and manager_check:
             message1 = "I am only a Team Manager"
         else:
             message1 = "I am neither"
