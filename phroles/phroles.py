@@ -177,15 +177,18 @@ class POWERHAUSRoles:
             name = role_name
             color = discord.Color.default()
             permissions = discord.Permissions(permissions=0)
+			
+			pattern = re.compile("^Team\b")
+			m = pattern.match(role_name)
 		    
-            if not all_check:
+            if m:
                 try:
                     await self.bot.create_role(server, name=name, color=color, permissions=permissions, hoist=False)
                     message = 'New team role made'
                 except discord.Forbidden:
                     message = 'I have no permissions to do that. Please give me role managing permissions.'
             else:
-                message = 'You must begin the role name with *Team*.\ne.g.: `!team add Team OW-Black`'
+                message = 'You must begin the role name with *Team*. Note that this is *case-sensitive*.\ne.g.: `!team add Team OW-Black`'
         else:
             message = "You don't have proper permissions"
 
