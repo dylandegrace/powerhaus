@@ -199,7 +199,7 @@ class CustomRoles:
 
         await self.bot.say(message)
         await self.bot.say("context, lead_check  ==" + str(test))
-        await self.bot.say("context, manager_check  ==" + str(test))			
+        await self.bot.say("context, manager_check  ==" + str(test2))			
 		
 		
 def setup(bot):
