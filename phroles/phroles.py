@@ -185,6 +185,7 @@ class CustomRoles:
             except discord.Forbidden:
                 message = 'I have no permissions to do that. Please give me role managing permissions.'
         else:
+            return
             message = "You don't have proper permissions"
 
         await self.bot.say(message)
