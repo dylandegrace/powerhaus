@@ -5,7 +5,7 @@ from discord.ext import commands
 from __main__ import send_cmd_help
 
 
-class CustomRoles:
+class POWERHAUSRoles:
     def __init__(self, bot):
         self.bot = bot
 
@@ -198,10 +198,10 @@ class CustomRoles:
             # message = "You don't have proper permissions"
 
         await self.bot.say(message1)
-        await self.bot.say("context, lead_check  ==" + str(test))
-        await self.bot.say("context, manager_check  ==" + str(test2))			
+        await self.bot.say("context, lead_check  ==" + str(lead_check))
+        await self.bot.say("context, manager_check  ==" + str(manager_check))			
 		
 		
 def setup(bot):
-    n = CustomRoles(bot)
+    n = POWERHAUSRoles(bot)
     bot.add_cog(n)
