@@ -164,13 +164,13 @@ class POWERHAUSRoles:
         Example: !team add Team OW-Black"""
         server = context.message.server
 
-        lead_role = "Division Lead"
-        manager_role = "Team Manager"
+        lead_role = "Division Lead".lower()
+        manager_role = "Team Manager".lower()
 
         lead_check = checks.role_or_permissions(context, lambda r: r.name.lower() == lead_role.lower())
         manager_check = checks.role_or_permissions(context, lambda r: r.name.lower() == manager_role.lower())
 		
-        all_check = checks.role_or_permissions(context, lambda r: r.name.lower() in ("Division Lead","Team Manager").lower(), manage_roles=True)
+        all_check = checks.role_or_permissions(context, lambda r: r.name.lower() in ("Division Lead".lower(),"Team Manager".lower()), manage_roles=True)
         
         if lead_check:
             message = "lead"
