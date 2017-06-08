@@ -8,6 +8,20 @@ from __main__ import send_cmd_help
 class POWERHAUSRoles:
     def __init__(self, bot):
         self.bot = bot
+		
+    def _role_from_string(self, server, rolename, roles=None):
+        if roles is None:
+            roles = server.roles
+
+        roles = [r for r in roles if r is not None]
+        role = discord.utils.find(lambda r: r.name.lower() == rolename.lower(),
+                                  roles)
+        try:
+            log.debug("Role {} found from rolename {}".format(
+                role.name, rolename))
+        except:
+            log.debug("Role not found for rolename {}".format(rolename))
+        return role
 
     @commands.group(pass_context=True, no_pm=True, name='role')
     async def _role(self, context):
