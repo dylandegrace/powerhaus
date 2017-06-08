@@ -167,7 +167,7 @@ class CustomRoles:
         lead_role = "Division Lead"
         manager_role = "Team Manager"
         lead_check = lambda r: r.name.lower() == lead_role.lower()
-        manager_check = lambda r:r.name.lower() == manager_role.lower()
+        manager_check = lambda r: r.name.lower() == manager_role.lower()
         test = checks.role_or_permissions(context, lead_check)
         test2 = checks.role_or_permissions(context, manager_check)
         
