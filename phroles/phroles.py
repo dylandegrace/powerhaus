@@ -173,6 +173,8 @@ class CustomRoles:
         
         if test and test2:
             message1 = "I am a Division Lead and Team Manager"
+        else:
+            message1 = "poop"
 
 			
 		
