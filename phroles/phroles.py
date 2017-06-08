@@ -171,14 +171,8 @@ class CustomRoles:
         test = checks.role_or_permissions(context, lead_check)
         test2 = checks.role_or_permissions(context, manager_check)
         
-        if ((lead_check and manager_check) == True):
-            message = "I am a Division Lead and Team Manager"
-        elif (lead_check == True and manager_check == False):
-            message = "I am only a Division Lead"
-        elif (lead_check == False and manager_check == True):
-            message = "I am only a Team Manager"
-        else:
-            message = "I am neither"
+        if manager_check:
+            message = "I am a Team Manager"
 			
 		
         # if lead_check:				
