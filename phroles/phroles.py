@@ -196,38 +196,38 @@ class POWERHAUSRoles:
 
         await self.bot.say(message)
 
-    @_team.command(pass_context=True, no_pm=True, name='apply')
-    async def _apply(self, context, *role_name):
-        """Add a user to a specified team"""
-        server = context.message.server
-        author = context.message.author
-        name = ' '.join(role_name)
-        roles = [role.name.lower() for role in server.roles]
+    # @_team.command(pass_context=True, no_pm=True, name='apply')
+    # async def _apply(self, context, *role_name):
+        # """Add a user to a specified team"""
+        # server = context.message.server
+        # author = context.message.author
+        # name = ' '.join(role_name)
+        # roles = [role.name.lower() for role in server.roles]
 		
-        all_check = checks.role_or_permissions(context, lambda r: r.name.lower() in ("Division Lead".lower(),"Team Manager".lower()), manage_roles=True)
+        # all_check = checks.role_or_permissions(context, lambda r: r.name.lower() in ("Division Lead".lower(),"Team Manager".lower()), manage_roles=True)
 
-        if all_check:
-            if name.lower() in roles:
-                for role in server.roles:
-                    if role.name.lower() == name.lower():
-                        if role.permissions.value < 1:
-                            try:
-                                await self.bot.add_roles(author, role)
-                                message = 'Role `{}` applied to {}'.format(role.name, author.display_name)
-                                break
-                            except discord.Forbidden:
-                                message = 'I have no permissions to do that. Please give me role managing permissions.'
-                        else:
-                            message = 'You cannot use this role'
-                    else:
-                        message = 'No such role'
-            else:
-                message = 'There is no such role on this server'
+        # if all_check:
+            # if name.lower() in roles:
+                # for role in server.roles:
+                    # if role.name.lower() == name.lower():
+                        # if role.permissions.value < 1:
+                            # try:
+                                # await self.bot.add_roles(author, role)
+                                # message = 'Role `{}` applied to {}'.format(role.name, author.display_name)
+                                # break
+                            # except discord.Forbidden:
+                                # message = 'I have no permissions to do that. Please give me role managing permissions.'
+                        # else:
+                            # message = 'You cannot use this role'
+                    # else:
+                        # message = 'No such role'
+            # else:
+                # message = 'There is no such role on this server'
 
-        else:
-            message "You don't have proper permissions"
+        # else:
+            # message "You don't have proper permissions"
 
-        await self.bot.say(message)
+        # await self.bot.say(message)
 
     # @_team.command(pass_context=True, no_pm=True, name='relieve')
     # async def _relieve(self, context, *role_name):
