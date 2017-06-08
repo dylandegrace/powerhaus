@@ -176,7 +176,7 @@ class POWERHAUSRoles:
         if manager_check:
             message = "manger"
             await self.bot.say(message)
-        if checks.mod_or_permissions(manage_roles=True):
+        if @checks.mod_or_permissions(manage_roles=True):
             message = str(checks.mod_or_permissions(manage_roles=True))			
             await self.bot.say(message)			
             # name = role_name
