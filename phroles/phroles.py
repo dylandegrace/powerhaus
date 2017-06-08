@@ -207,22 +207,22 @@ class POWERHAUSRoles:
         all_check = checks.role_or_permissions(context, lambda r: r.name.lower() in ("Division Lead".lower(),"Team Manager".lower()), manage_roles=True)
 
         # if all_check:
-            if name.lower() in roles:
-                for role in server.roles:
-                    if role.name.lower() == name.lower():
-                        if role.permissions.value < 1:
-                            try:
-                                await self.bot.add_roles(author, role)
-                                message = 'Role `{}` applied to {}'.format(role.name, author.display_name)
-                                break
-                            except discord.Forbidden:
-                                message = 'I have no permissions to do that. Please give me role managing permissions.'
-                        else:
-                            message = 'You cannot use this role'
+        if name.lower() in roles:
+            for role in server.roles:
+                if role.name.lower() == name.lower():
+                    if role.permissions.value < 1:
+                        try:
+                            await self.bot.add_roles(author, role)
+                            message = 'Role `{}` applied to {}'.format(role.name, author.display_name)
+                            break
+                        except discord.Forbidden:
+                            message = 'I have no permissions to do that. Please give me role managing permissions.'
                     else:
-                        message = 'No such role'
-            else:
-                message = 'There is no such role on this server'
+                        message = 'You cannot use this role'
+                else:
+                    message = 'No such role'
+        else:
+            message = 'There is no such role on this server'
 
         # else:
             # message "You don't have proper permissions"
