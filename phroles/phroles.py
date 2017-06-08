@@ -196,8 +196,6 @@ class POWERHAUSRoles:
 
         await self.bot.say(message)
 
-###############################
-
     @_team.command(pass_context=True, no_pm=True, name='apply')
     async def _apply(self, context, *role_name):
         """Add a user to a specified team"""
@@ -225,32 +223,33 @@ class POWERHAUSRoles:
                         message = 'No such role'
             else:
                 message = 'There is no such role on this server'
+
         else:
             message "You don't have proper permissions"
 
         await self.bot.say(message)
 
-    @_team.command(pass_context=True, no_pm=True, name='relieve')
-    async def _relieve(self, context, *role_name):
-        """Remove a user from a specified team"""
-        server = context.message.server
-        author = context.message.author
-        name = ' '.join(role_name)
-        roles = [role.name.lower() for role in server.roles]
-        if name.lower() in roles:
-            for role in server.roles:
-                if role.name.lower() == name.lower():
-                    try:
-                        await self.bot.remove_roles(author, role)
-                        message = 'Role `{}` removed from {}'.format(role.name, author.display_name)
-                        break
-                    except discord.Forbidden:
-                        message = 'I have no permissions to do that. Please give me role managing permissions.'
-                else:
-                    message = '`Something went wrong...`'
-        else:
-            message = 'There is no such role on this server'
-        await self.bot.say(message)
+    # @_team.command(pass_context=True, no_pm=True, name='relieve')
+    # async def _relieve(self, context, *role_name):
+        # """Remove a user from a specified team"""
+        # server = context.message.server
+        # author = context.message.author
+        # name = ' '.join(role_name)
+        # roles = [role.name.lower() for role in server.roles]
+        # if name.lower() in roles:
+            # for role in server.roles:
+                # if role.name.lower() == name.lower():
+                    # try:
+                        # await self.bot.remove_roles(author, role)
+                        # message = 'Role `{}` removed from {}'.format(role.name, author.display_name)
+                        # break
+                    # except discord.Forbidden:
+                        # message = 'I have no permissions to do that. Please give me role managing permissions.'
+                # else:
+                    # message = '`Something went wrong...`'
+        # else:
+            # message = 'There is no such role on this server'
+        # await self.bot.say(message)
 		
 		
 def setup(bot):
