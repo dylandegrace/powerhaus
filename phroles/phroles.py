@@ -171,7 +171,7 @@ class CustomRoles:
         test = checks.role_or_permissions(context, lead_check)
         test2 = checks.role_or_permissions(context, manager_check)
         
-        if manager_check:
+        if manager_check ==  True:
             message = "I am a Team Manager"
 			
 		
