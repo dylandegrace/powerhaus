@@ -190,7 +190,7 @@ class POWERHAUSRoles:
                     message = 'I have no permissions to do that. Please give me role managing permissions.'
             else:
                 message = 'You must begin the role name with *Team*. Note that this is *case-sensitive*.\ne.g.: `!team add Team OW-Black`'
-                await self.bot.say(re.match(r'^Team\b', role_name))
+
         else:
             message = "You don't have proper permissions"
 
