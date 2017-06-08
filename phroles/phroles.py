@@ -4,6 +4,7 @@ from .utils import checks
 from discord.ext import commands
 from __main__ import send_cmd_help
 
+log = logging.getLogger("red.admin")
 
 class POWERHAUSRoles:
     def __init__(self, bot):
