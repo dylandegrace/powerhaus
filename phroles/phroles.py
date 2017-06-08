@@ -178,7 +178,7 @@ class CustomRoles:
         elif not test and test2:
             message = "I am only a Team Manager"
         else:
-            message = "I am neither"
+            message = "I am neaither"
 			
 		
         # if lead_check:				
