@@ -1,30 +1,13 @@
 import re
 import discord
-import logging
 from .utils import checks
 from discord.ext import commands
 from __main__ import send_cmd_help
-
-log = logging.getLogger("red.admin")
 
 class POWERHAUSRoles:
     def __init__(self, bot):
         self.bot = bot
 		
-    def _role_from_string(self, server, rolename, roles=None):
-        if roles is None:
-            roles = server.roles
-
-        roles = [r for r in roles if r is not None]
-        role = discord.utils.find(lambda r: r.name.lower() == rolename.lower(),
-                                  roles)
-        try:
-            log.debug("Role {} found from rolename {}".format(
-                role.name, rolename))
-        except:
-            log.debug("Role not found for rolename {}".format(rolename))
-        return role
-
     @commands.group(pass_context=True, no_pm=True, name='role')
     async def _role(self, context):
         """Shows a list of the teams or games we currently have within the server"""
@@ -212,26 +195,26 @@ class POWERHAUSRoles:
 
         await self.bot.say(message)
     
-    @_team.command(pass_context=True, no_pm=True, name='apply')
-    async def _apply(self, context, role_name, user):
-        """Adds a role to a user
-        Role name must be in quotes if there are spaces."""
-        author = context.message.author
-        channel = context.message.channel
-        server = context.message.server
+    # @_team.command(pass_context=True, no_pm=True, name='apply')
+    # async def _apply(self, context, role_name, user):
+        # """Adds a role to a user
+        # Role name must be in quotes if there are spaces."""
+        # author = context.message.author
+        # channel = context.message.channel
+        # server = context.message.server
 
-        role = self._role_from_string(server, role_name)
+        # role = self._role_from_string(server, role_name)
 
-        if role is None:
-            await self.bot.say('That role cannot be found.')
-            return
+        # if role is None:
+            # await self.bot.say('That role cannot be found.')
+            # return
 
-        if not channel.permissions_for(server.me).manage_roles:
-            await self.bot.say('I don\'t have manage_roles.')
-            return
+        # if not channel.permissions_for(server.me).manage_roles:
+            # await self.bot.say('I don\'t have manage_roles.')
+            # return
 
-        await self.bot.add_roles(user, role)
-        await self.bot.say('Added role {} to {}'.format(role.name, user.name))
+        # await self.bot.add_roles(user, role)
+        # await self.bot.say('Added role {} to {}'.format(role.name, user.name))
 
     # @_team.command(pass_context=True, no_pm=True, name='relieve')
     # async def _relieve(self, context, *role_name):
