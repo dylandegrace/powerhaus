@@ -170,7 +170,7 @@ class POWERHAUSRoles:
         lead_check = checks.role_or_permissions(context, lambda r: r.name.lower() == lead_role.lower())
         manager_check = checks.role_or_permissions(context, lambda r: r.name.lower() == manager_role.lower())
         
-        if lead_check or manager_check or checks.mod_or_permissions(context, manage_roles=True):
+        if lead_check or manager_check or checks.mod_or_permissions(manage_roles=True):
             message = "lead or mange or rolemaneger"
             # name = role_name
             # color = '99aab5'
