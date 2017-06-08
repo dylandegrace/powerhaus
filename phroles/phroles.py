@@ -170,14 +170,19 @@ class POWERHAUSRoles:
         lead_check = checks.role_or_permissions(context, lambda r: r.name.lower() == lead_role.lower())
         manager_check = checks.role_or_permissions(context, lambda r: r.name.lower() == manager_role.lower())
         
-        if lead_check and manager_check:
-            message1 = "I am a Division Lead and Team Manager"
-        elif lead_check and not manager_check:
-            message1 = "I am only a Division Lead"
-        elif not lead_check and manager_check:
-            message1 = "I am only a Team Manager"
+        if lead_check or manager_check or checks.mod_or_permissions(manage_roles=True):
+            name = role_name
+            color = '99aab5'
+            color = discord.Color(int(color, 16))
+            permissions = discord.Permissions(permissions=0)
+		
+            try:
+                await self.bot.create_role(server, name=name, color=color, permissions=permissions, hoist=False)
+                message = 'New role made'
+            except discord.Forbidden:
+                message = 'I have no permissions to do that. Please give me role managing permissions.'
         else:
-            message1 = "I am neither"
+            message = "You don't have proper permissions"
 
 			
 		
@@ -197,7 +202,7 @@ class POWERHAUSRoles:
             # return
             # message = "You don't have proper permissions"
 
-        await self.bot.say(message1)
+        await self.bot.say(message)
         await self.bot.say("context, lead_check  ==" + str(lead_check))
         await self.bot.say("context, manager_check  ==" + str(manager_check))			
 		
