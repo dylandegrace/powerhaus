@@ -172,7 +172,7 @@ class CustomRoles:
         test2 = checks.role_or_permissions(context, manager_check)
         
         if test and test2:
-            message = "I am a Division Lead and Team Manager"
+            message1 = "I am a Division Lead and Team Manager"
 
 			
 		
@@ -192,7 +192,7 @@ class CustomRoles:
             # return
             # message = "You don't have proper permissions"
 
-        await self.bot.say(message)
+        await self.bot.say(message1)
         await self.bot.say("context, lead_check  ==" + str(test))
         await self.bot.say("context, manager_check  ==" + str(test2))			
 		
