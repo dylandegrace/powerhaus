@@ -1,5 +1,6 @@
 import re
 import discord
+import logging
 from .utils import checks
 from discord.ext import commands
 from __main__ import send_cmd_help
