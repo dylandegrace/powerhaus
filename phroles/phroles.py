@@ -169,6 +169,7 @@ class CustomRoles:
         lead_check = lambda r: r.name.lower() == lead_role.lower()
         manager_check = lambda r:r.name.lower() == manager_role.lower()
         test = checks.role_or_permissions(context, lead_check)
+        test2 = checks.role_or_permissions(context, manager_check)
         
 		
         if lead_check or manager_check:				
@@ -188,7 +189,8 @@ class CustomRoles:
             message = "You don't have proper permissions"
 
         await self.bot.say(message)
-        await self.bot.say("context, lead_check  ==" + str(test))			
+        await self.bot.say("context, lead_check  ==" + str(test))
+        await self.bot.say("context, manager_check  ==" + str(test))			
 		
 		
 def setup(bot):
