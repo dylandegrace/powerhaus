@@ -170,8 +170,15 @@ class POWERHAUSRoles:
         lead_check = checks.role_or_permissions(context, lambda r: r.name.lower() == lead_role.lower())
         manager_check = checks.role_or_permissions(context, lambda r: r.name.lower() == manager_role.lower())
         
-        if lead_check or manager_check or checks.mod_or_permissions(manage_roles=True):
-            message = "lead or mange or rolemaneger"
+        if lead_check:
+            message = "lead"
+            await self.bot.say(message)
+        if manager_check:
+            message = "manger"
+            await self.bot.say(message)
+        if checks.mod_or_permissions(manage_roles=True):
+            message = "rolemaneger"			
+            await self.bot.say(message)			
             # name = role_name
             # color = '99aab5'
             # color = discord.Color(int(color, 16))
@@ -188,7 +195,7 @@ class POWERHAUSRoles:
 			
 	
 
-        await self.bot.say(message)
+        # await self.bot.say(message)
         await self.bot.say("context, lead_check  ==" + str(lead_check))
         await self.bot.say("context, manager_check  ==" + str(manager_check))			
 		
