@@ -154,7 +154,7 @@ class POWERHAUSRoles:
 
     @commands.group(pass_context=True, no_pm=True, name='team')
     async def _team(self, context):
-        """DLs and Team Managers can add teams and apply/relieve teams to/from users. Teams created with this cog have no permissions."""
+        """DLs and Team Managers can add teams and apply/relieve teams to/from users."""
         if context.invoked_subcommand is None:
             await send_cmd_help(context)
 			
@@ -195,39 +195,27 @@ class POWERHAUSRoles:
             message = "You don't have proper permissions"
 
         await self.bot.say(message)
-
+    
     @_team.command(pass_context=True, no_pm=True, name='apply')
-    async def _apply(self, context, *role_name):
-        """Add a user to a specified team"""
-        server = context.message.server
+    async def _apply(self, context, role_name, user):
+        """Adds a role to a user
+        Role name must be in quotes if there are spaces."""
         author = context.message.author
-        name = ' '.join(role_name)
-        roles = [role.name.lower() for role in server.roles]
-		
-        all_check = checks.role_or_permissions(context, lambda r: r.name.lower() in ("Division Lead".lower(),"Team Manager".lower()), manage_roles=True)
+        channel = context.message.channel
+        server = context.message.server
 
-        # if all_check:
-        if name.lower() in roles:
-            for role in server.roles:
-                if role.name.lower() == name.lower():
-                    if role.permissions.value < 1:
-                        try:
-                            await self.bot.add_roles(author, role)
-                            message = 'Role `{}` applied to {}'.format(role.name, author.display_name)
-                            break
-                        except discord.Forbidden:
-                            message = 'I have no permissions to do that. Please give me role managing permissions.'
-                    else:
-                        message = 'You cannot use this role'
-                else:
-                    message = 'No such role'
-        else:
-            message = 'There is no such role on this server'
+        role = self._role_from_string(server, role_name)
 
-        # else:
-            # message "You don't have proper permissions"
+        if role is None:
+            await self.bot.say('That role cannot be found.')
+            return
 
-        await self.bot.say(message)
+        if not channel.permissions_for(server.me).manage_roles:
+            await self.bot.say('I don\'t have manage_roles.')
+            return
+
+        await self.bot.add_roles(user, role)
+        await self.bot.say('Added role {} to {}'.format(role.name, user.name))
 
     # @_team.command(pass_context=True, no_pm=True, name='relieve')
     # async def _relieve(self, context, *role_name):
