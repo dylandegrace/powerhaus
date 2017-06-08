@@ -175,7 +175,7 @@ class POWERHAUSRoles:
         if all_check:
 
             name = role_name
-            color = discord.Colour.default()
+            color = discord.Color.default()
             color = discord.Color(int(color, 16))
             permissions = discord.Permissions(permissions=0)
 		
