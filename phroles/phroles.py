@@ -170,7 +170,7 @@ class POWERHAUSRoles:
         lead_check = checks.role_or_permissions(context, lambda r: r.name.lower() == lead_role.lower())
         manager_check = checks.role_or_permissions(context, lambda r: r.name.lower() == manager_role.lower())
 		
-		all_check = checks.role_or_permissions(context, lambda r: r.name.lower() in ("Division Lead","Team Manager").lower(), manage_roles=True)
+        all_check = checks.role_or_permissions(context, lambda r: r.name.lower() in ("Division Lead","Team Manager").lower(), manage_roles=True)
         
         if lead_check:
             message = "lead"
