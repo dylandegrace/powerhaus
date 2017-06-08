@@ -177,7 +177,7 @@ class POWERHAUSRoles:
             message = "manger"
             await self.bot.say(message)
         if checks.mod_or_permissions(manage_roles=True):
-            message = "rolemaneger"			
+            message = str(checks.mod_or_permissions(manage_roles=True))			
             await self.bot.say(message)			
             # name = role_name
             # color = '99aab5'
