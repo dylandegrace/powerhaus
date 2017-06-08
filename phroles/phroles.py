@@ -173,8 +173,12 @@ class CustomRoles:
         
         if test and test2:
             message1 = "I am a Division Lead and Team Manager"
+        elif test and not test2:
+            message1 = "I am only a Division Lead"
+        elif not test and test2:
+            message1 = "I am only a Team Manager"
         else:
-            message1 = "poop"
+            message1 = "I am neither"
 
 			
 		
