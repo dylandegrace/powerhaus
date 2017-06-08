@@ -175,13 +175,13 @@ class POWERHAUSRoles:
         if all_check:
 
             name = role_name
-            color = '99aab5'
+            color = discord.Colour.default()
             color = discord.Color(int(color, 16))
             permissions = discord.Permissions(permissions=0)
 		
             try:
                 await self.bot.create_role(server, name=name, color=color, permissions=permissions, hoist=False)
-                message = 'New role made'
+                message = 'New team role made'
             except discord.Forbidden:
                 message = 'I have no permissions to do that. Please give me role managing permissions.'
         else:
