@@ -171,22 +171,31 @@ class CustomRoles:
         test = checks.role_or_permissions(context, lead_check)
         test2 = checks.role_or_permissions(context, manager_check)
         
-		
-        if lead_check:				
-            
-            name = role_name
-            color = '99aab5'
-            color = discord.Color(int(color, 16))
-            permissions = discord.Permissions(permissions=0)
-		
-            try:
-                await self.bot.create_role(server, name=name, color=color, permissions=permissions, hoist=False)
-                message = 'New role made'
-            except discord.Forbidden:
-                message = 'I have no permissions to do that. Please give me role managing permissions.'
+        if lead_check and manager_check:
+            message = "I am a Division Lead and Team Manager"
+        else if lead_check and not manager_check:
+            message = "I am only a Division Lead"
+        else if not lead_check and manager_check:
+            message = "I am only a Team Manager"
         else:
-            return
-            message = "You don't have proper permissions"
+            message = "I am neither"
+			
+		
+        # if lead_check:				
+            
+            # name = role_name
+            # color = '99aab5'
+            # color = discord.Color(int(color, 16))
+            # permissions = discord.Permissions(permissions=0)
+		
+            # try:
+                # await self.bot.create_role(server, name=name, color=color, permissions=permissions, hoist=False)
+                # message = 'New role made'
+            # except discord.Forbidden:
+                # message = 'I have no permissions to do that. Please give me role managing permissions.'
+        # else:
+            # return
+            # message = "You don't have proper permissions"
 
         await self.bot.say(message)
         await self.bot.say("context, lead_check  ==" + str(test))
