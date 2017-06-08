@@ -172,9 +172,8 @@ class CustomRoles:
         test2 = checks.role_or_permissions(context, manager_check)
         
 		
-        if lead_check or manager_check:				
+        if lead_check:				
             
-            name = ' '.join(role_name)
             name = role_name
             color = '99aab5'
             color = discord.Color(int(color, 16))
