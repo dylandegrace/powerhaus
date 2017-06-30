@@ -283,7 +283,6 @@ class POWERHAUSRoles:
         option_output_mentions = "--output-mentions" in args
         option_output_id = "--output-id" in args
         option_output_mentions_only = "--output-mentions-only" in args
-        option_members_without_clan_tag = "--members-without-clan-tag" in args
         option_sort_join = "--sort-join" in args
         option_everyone = "--everyone" in args
         option_sort_alpha = "--sort-alpha" in args
@@ -297,12 +296,6 @@ class POWERHAUSRoles:
         # get list of arguments which are valid server role names
         # as dictionary {flag, name}
         out = ["**Member Management**"]
-
-        if option_members_without_clan_tag:
-            args = ['Member', '-Alpha', '-Bravo', '-Charlie',
-                    '-Delta', '-Echo',
-                    '-Foxtrot', '-Golf', '-Hotel',
-                    '-eSports', '-Special']
 
         role_args = []
         flags = ['+', '-']
