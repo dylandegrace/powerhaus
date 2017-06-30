@@ -125,9 +125,14 @@ class POWERHAUSRoles:
             # message = 'There is no such role on this server'
         # await self.bot.say(message)
 		
-    # @_role.command(pass_context=True, no_pm=True, name='chart')
-    # @checks.mod_or_permissions(manage_roles = True)
-    # async def _chart
+    @_role.command(pass_context=True, no_pm=True, name='chart')
+    @checks.mod_or_permissions(manage_roles = True)
+    async def _chart(self, context):
+	
+        for member in server.members:
+            dates = member.joined_at
+			
+    await self.bot.say(dates[0])
 
     @_role.command(pass_context=True, no_pm=True, name='games')
     @checks.mod_or_permissions(manage_roles=True)
