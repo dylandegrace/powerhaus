@@ -132,7 +132,7 @@ class POWERHAUSRoles:
         for member in server.members:
             dates = member.joined_at
 			
-    await self.bot.say("fuck")
+        await self.bot.say("{}".format(len(dates)))
 
     @_role.command(pass_context=True, no_pm=True, name='games')
     @checks.mod_or_permissions(manage_roles=True)
