@@ -501,7 +501,7 @@ class POWERHAUSRoles:
                 '---------------------',
                 '**Display name:** {}'.format(member.display_name),
                 '**Username:** {}'.format(str(member)),
-                '**Join Date:** {} ({} days)'.format(member.joined_at.strftime("%b-%d-%Y"),(ctx.message.timestamp - m.joined_at).days),
+                '**Join Date:** {} ({} days)'.format(member.joined_at.strftime("%b-%d-%Y"),(ctx.message.timestamp - member.joined_at).days),
                 '**Roles:** {}'.format(', '.join([r.name for r in member.roles if not r.is_everyone])),
                 '**id:** {}'.format(member.id)
             ]
