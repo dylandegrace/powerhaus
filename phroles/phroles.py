@@ -259,7 +259,7 @@ class POWERHAUSRoles:
 
     @commands.command(pass_context=True)
     @commands.has_any_role(*BOTCOMMANDER_ROLE)
-    async def mm(self, ctx, *,  *args):
+    async def mm(self, ctx, *args):
         """
         Member management command.
         Get a list of users that satisfy a list of roles supplied.
