@@ -124,6 +124,10 @@ class POWERHAUSRoles:
         # else:
             # message = 'There is no such role on this server'
         # await self.bot.say(message)
+		
+    @_role.command(pass_context=True, no_pm=True, name='chart')
+    @checks.mod_or_permissions(manage_roles = True)
+    async def _chart
 
     @_role.command(pass_context=True, no_pm=True, name='games')
     @checks.mod_or_permissions(manage_roles=True)
@@ -322,10 +326,10 @@ class POWERHAUSRoles:
             'Syntax Error: You must include at '
             'least one role to display results.')
 
-        if len(plus) < 1:
-            out.append(help_str)
-        else:
-            out.append("Listing members who have these roles: {}".format(
+        # if len(plus) < 1:
+            # out.append(help_str)
+        # else:
+        out.append("Listing members who have these roles: {}".format(
                 ', '.join(plus_out)))
         if len(minus):
             out.append("but not these roles: {}".format(
