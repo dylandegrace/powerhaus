@@ -135,7 +135,7 @@ class POWERHAUSRoles:
         for member in server.members:
             dates = member.joined_at
 			
-        n, bins, patches = plt.hist(dates, 50, normed=1, facecolor='green', alpha=0.75)
+        plt.hist(dates, 50, normed=1, facecolor='green', alpha=0.75)
 		
         plt.savefig('testchart.png')
 			
