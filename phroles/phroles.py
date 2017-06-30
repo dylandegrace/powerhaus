@@ -133,11 +133,11 @@ class POWERHAUSRoles:
         server = context.message.server
 
         for member in server.members:
-            dates = matplotlib.dates.date2num(member.joined_at)
+            datelist = matplotlib.dates.date2num(member.joined_at)
 			
 
 			
-        await self.bot.say("{}".format(len(dates)))
+        await self.bot.say("{}".format(len(datelist)))
 
     @_role.command(pass_context=True, no_pm=True, name='games')
     @checks.mod_or_permissions(manage_roles=True)
