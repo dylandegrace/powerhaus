@@ -501,6 +501,7 @@ class POWERHAUSRoles:
                 '---------------------',
                 'Display name: {}'.format(member.display_name),
                 'Username: {}'.format(str(member)),
+                'Join Date: {}'.format(member.joined_at),
                 'Roles: {}'.format(', '.join([r.name for r in member.roles if not r.is_everyone])),
                 'id: {}'.format(member.id)
             ]
