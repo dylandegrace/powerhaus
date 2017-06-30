@@ -129,19 +129,11 @@ class POWERHAUSRoles:
 		
     @_role.command(pass_context=True, no_pm=True)
     @checks.mod_or_permissions(manage_roles=True)
-    async def plotactivity(self, ctx):
+    async def chart(self, ctx):
         """Plot the activity for the week."""
         server = ctx.message.server
-        self.check_server_settings(server)
-        self.check_message_time_settings(server)
 
-        time_id = self.get_time_id()
-        settings = None
-        if server.id in self.settings:
-            settings = self.settings[server.id][time_id]['message_time']
-
-        if settings is None:
-            return
+        dates = member.joined_at
 
         facecolor = '#32363b'
         edgecolor = '#eeeeee'
@@ -151,31 +143,15 @@ class POWERHAUSRoles:
         tickcolor = '#999999'
         titlecolor = '#ffffff'
 
+        fig = plt.figure(
+            num=1,
+            figsize=(8, 6),
+            dpi=192,
+            facecolor=facecolor,
+            edgecolor=edgecolor)
         # settings[day][hour]
-        fig, axes = plt.subplots(7, sharex=True, sharey=True)
 
-        plt.xticks(range(0, 24, 4))
-
-        days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-        days_gen = (d for d in days)
-
-        for ax in axes:
-            ax.ylabel = next(days_gen)
-            # await self.bot.say(day)
-            for spine in ax.spines.values():
-                spine.set_edgecolor(spinecolor)
-
-        for i, (k, v) in enumerate(settings.items()):
-            # fix legacy data  issues where v is not a dict
-            if isinstance(v, dict):
-                x = [str(k) for k in v.keys()]
-                y = [int(k) for k in v.values()]
-                axes[i].plot(x, y, 'o-')
-                axes[i].tick_params(axis='x', colors=tickcolor)
-                axes[i].tick_params(axis='y', colors=tickcolor)
-
-        fig.subplots_adjust(hspace=0)
-        plt.setp([a.get_xticklabels() for a in fig.axes[:-1]], visible=False)
+        plt.hist(dates, 50)
 
         plot_filename = 'plot.png'
         plot_name = ""
