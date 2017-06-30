@@ -5,6 +5,7 @@ from discord.ext import commands
 from random import choice
 import itertools
 import matplotlib
+matplotlib.use('Agg')
 from matplotlib import pyplot as plt
 from cogs.utils.chat_formatting import box
 from cogs.utils.chat_formatting import pagify
