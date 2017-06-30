@@ -154,13 +154,13 @@ class POWERHAUSRoles:
             edgecolor=edgecolor)
         # settings[day][hour]
 
-        plt.hist(dates, 50)
+        fig.hist(dates, 50)
 
         plot_filename = 'plot.png'
         plot_name = ""
 
         with io.BytesIO() as f:
-            plt.savefig(
+            fih.savefig(
                 f, format="png", facecolor=facecolor,
                 edgecolor=edgecolor, transparent=True)
             f.seek(0)
