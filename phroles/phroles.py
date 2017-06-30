@@ -271,8 +271,6 @@ class POWERHAUSRoles:
             Append a string ot user ids for the results.
         --output-mentions-only
             Don’t display the long list and only display the list of member mentions
-        --members-without-clan-tag
-            RACF specific option. Equivalent to typing Member -Alpha -Bravo -Charlie -Delta -Echo -Foxtrot -Golf -Hotel
         --list
             Display as inline list
         --only-role
