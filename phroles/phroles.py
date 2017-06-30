@@ -4,6 +4,7 @@ from .utils import checks
 from discord.ext import commands
 from random import choice
 import itertools
+import matplotlib
 from cogs.utils.chat_formatting import box
 from cogs.utils.chat_formatting import pagify
 from __main__ import send_cmd_help
@@ -132,7 +133,9 @@ class POWERHAUSRoles:
         server = context.message.server
 
         for member in server.members:
-            dates = member.joined_at
+            dates = matplotlib.dates.date2num(member.joined_at)
+			
+
 			
         await self.bot.say("{}".format(len(dates)))
 
