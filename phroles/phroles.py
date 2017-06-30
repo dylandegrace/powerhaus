@@ -128,51 +128,6 @@ class POWERHAUSRoles:
             # message = 'There is no such role on this server'
         # await self.bot.say(message)
 		
-    @_role.command(pass_context=True, no_pm=True)
-    @checks.mod_or_permissions(manage_roles=True)
-    async def chart(self, ctx):
-        """Plot the activity for the week."""
-        
-        server = ctx.message.server
-
-        for m in server.members:
-            dates = m.joined_at
-
-        facecolor = '#32363b'
-        edgecolor = '#eeeeee'
-        spinecolor = '#999999'
-        footercolor = '#999999'
-        labelcolor = '#cccccc'
-        tickcolor = '#999999'
-        titlecolor = '#ffffff'
-
-        fig = plt.figure(
-            num=1,
-            figsize=(8, 6),
-            dpi=192,
-            facecolor=facecolor,
-            edgecolor=edgecolor)
-        # settings[day][hour]
-
-        plt.plt([1,2,3], [1, 6, 20])
-
-        plot_filename = 'plot.png'
-        plot_name = ""
-
-        with io.BytesIO() as f:
-            plt.savefig(
-                f, format="png", facecolor=facecolor,
-                edgecolor=edgecolor, transparent=True)
-            f.seek(0)
-            await ctx.bot.send_file(
-                ctx.message.channel,
-                f,
-                filename=plot_filename,
-                content=plot_name)
-
-        fig.clf()
-        plt.clf()
-        plt.cla()
 
     @_role.command(pass_context=True, no_pm=True, name='games')
     @checks.mod_or_permissions(manage_roles=True)
