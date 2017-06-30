@@ -4,7 +4,7 @@ from .utils import checks
 from discord.ext import commands
 from random import choice
 import itertools
-import matplotlib
+import matplotlib.pyplot as plt
 from cogs.utils.chat_formatting import box
 from cogs.utils.chat_formatting import pagify
 from __main__ import send_cmd_help
@@ -133,11 +133,13 @@ class POWERHAUSRoles:
         server = context.message.server
 
         for member in server.members:
-            datelist = matplotlib.dates.date2num(member.joined_at)
+            dates = member.joined_at
 			
-
+        n, bins, patches = plt.hist(dates, 50, normed=1, facecolor='green', alpha=0.75)
+		
+        plt.savefig('testchart.png')
 			
-        await self.bot.say("{}".format(len(datelist)))
+        await self.bot.say(num2str(n))
 
     @_role.command(pass_context=True, no_pm=True, name='games')
     @checks.mod_or_permissions(manage_roles=True)
