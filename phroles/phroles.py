@@ -4,7 +4,8 @@ from .utils import checks
 from discord.ext import commands
 from random import choice
 import itertools
-import matplotlib.pyplot as plt
+import matplotlib
+from matplotlib import pyplot as plt
 from cogs.utils.chat_formatting import box
 from cogs.utils.chat_formatting import pagify
 from __main__ import send_cmd_help
@@ -126,20 +127,73 @@ class POWERHAUSRoles:
             # message = 'There is no such role on this server'
         # await self.bot.say(message)
 		
-    @_role.command(pass_context=True, no_pm=True, name='chart')
-    @checks.mod_or_permissions(manage_roles = True)
-    async def _chart(self, context):
-	
-        server = context.message.server
+    @_role.command(pass_context=True, no_pm=True)
+    @checks.mod_or_permissions(manage_roles=True)
+    async def plotactivity(self, ctx):
+        """Plot the activity for the week."""
+        server = ctx.message.server
+        self.check_server_settings(server)
+        self.check_message_time_settings(server)
 
-        for member in server.members:
-            dates = member.joined_at
-			
-        plt.hist(dates, 50, normed=1, facecolor='green', alpha=0.75)
-		
-        plt.savefig('testchart.png')
-			
-        await self.bot.say(num2str(n))
+        time_id = self.get_time_id()
+        settings = None
+        if server.id in self.settings:
+            settings = self.settings[server.id][time_id]['message_time']
+
+        if settings is None:
+            return
+
+        facecolor = '#32363b'
+        edgecolor = '#eeeeee'
+        spinecolor = '#999999'
+        footercolor = '#999999'
+        labelcolor = '#cccccc'
+        tickcolor = '#999999'
+        titlecolor = '#ffffff'
+
+        # settings[day][hour]
+        fig, axes = plt.subplots(7, sharex=True, sharey=True)
+
+        plt.xticks(range(0, 24, 4))
+
+        days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+        days_gen = (d for d in days)
+
+        for ax in axes:
+            ax.ylabel = next(days_gen)
+            # await self.bot.say(day)
+            for spine in ax.spines.values():
+                spine.set_edgecolor(spinecolor)
+
+        for i, (k, v) in enumerate(settings.items()):
+            # fix legacy data  issues where v is not a dict
+            if isinstance(v, dict):
+                x = [str(k) for k in v.keys()]
+                y = [int(k) for k in v.values()]
+                axes[i].plot(x, y, 'o-')
+                axes[i].tick_params(axis='x', colors=tickcolor)
+                axes[i].tick_params(axis='y', colors=tickcolor)
+
+        fig.subplots_adjust(hspace=0)
+        plt.setp([a.get_xticklabels() for a in fig.axes[:-1]], visible=False)
+
+        plot_filename = 'plot.png'
+        plot_name = ""
+
+        with io.BytesIO() as f:
+            plt.savefig(
+                f, format="png", facecolor=facecolor,
+                edgecolor=edgecolor, transparent=True)
+            f.seek(0)
+            await ctx.bot.send_file(
+                ctx.message.channel,
+                f,
+                filename=plot_filename,
+                content=plot_name)
+
+        fig.clf()
+        plt.clf()
+        plt.cla()
 
     @_role.command(pass_context=True, no_pm=True, name='games')
     @checks.mod_or_permissions(manage_roles=True)
