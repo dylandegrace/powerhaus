@@ -129,6 +129,8 @@ class POWERHAUSRoles:
     @checks.mod_or_permissions(manage_roles = True)
     async def _chart(self, context):
 	
+        server = context.message.server
+
         for member in server.members:
             dates = member.joined_at
 			
