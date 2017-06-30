@@ -453,7 +453,7 @@ class POWERHAUSRoles:
         return embeds
 
     @commands.command(pass_context=True, no_pm=True)
-    async def listroles(self, ctx: Context, *roles):
+    async def listroles(self, ctx, *roles):
         """List all the roles on the server."""
         server = ctx.message.server
         if server is None:
