@@ -131,10 +131,11 @@ class POWERHAUSRoles:
     @checks.mod_or_permissions(manage_roles=True)
     async def chart(self, ctx):
         """Plot the activity for the week."""
+        
         server = ctx.message.server
 
-        for member in server.members:
-            dates = member.joined_at
+        for m in server.members:
+            dates = m.joined_at
 
         facecolor = '#32363b'
         edgecolor = '#eeeeee'
