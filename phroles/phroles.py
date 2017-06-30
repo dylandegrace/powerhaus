@@ -499,11 +499,11 @@ class POWERHAUSRoles:
         for member in results:
             out = [
                 '---------------------',
-                'Display name: {}'.format(member.display_name),
-                'Username: {}'.format(str(member)),
-                'Join Date: {}'.format(member.joined_at.strftime("%b-%d-%Y")),
-                'Roles: {}'.format(', '.join([r.name for r in member.roles if not r.is_everyone])),
-                'id: {}'.format(member.id)
+                '**Display name:** {}'.format(member.display_name),
+                '**Username:** {}'.format(str(member)),
+                '**Join Date:** {} ({} days)'.format(member.joined_at.strftime("%b-%d-%Y"),(ctx.message.timestamp - m.joined_at).days),
+                '**Roles:** {}'.format(', '.join([r.name for r in member.roles if not r.is_everyone])),
+                '**id:** {}'.format(member.id)
             ]
             await self.bot.say('\n'.join(out))		
 
