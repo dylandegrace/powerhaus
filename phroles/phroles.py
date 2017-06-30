@@ -133,7 +133,8 @@ class POWERHAUSRoles:
         """Plot the activity for the week."""
         server = ctx.message.server
 
-        dates = member.joined_at
+        for member in server.members:
+            dates = member.joined_at
 
         facecolor = '#32363b'
         edgecolor = '#eeeeee'
