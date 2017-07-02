@@ -152,14 +152,16 @@ class POWERHAUSRoles:
 
         plot_filename = 'plot.png'
         plot_name = ""
+        
+        export DISPLAY=:0.0
 
         with io.BytesIO() as f:
             plt.savefig(
                 f, format="png", facecolor=facecolor,
                 edgecolor=edgecolor, transparent=True)
             f.seek(0)
-            await ctx.bot.send_file(
-                ctx.message.channel,
+            await context.bot.send_file(
+                context.message.channel,
                 f,
                 filename=plot_filename,
                 content=plot_name)
