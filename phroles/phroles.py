@@ -151,9 +151,9 @@ class POWERHAUSRoles:
         x = [member.joined_at for member in server.members]
 
         plt.switch_backend('Agg')
-        hist = plt.hist(x, bins = 100)
+        (n, bins, patches) = plt.hist(x, bins = 100)
     
-        await self.bot.say(len(hist))
+        await self.bot.say(len(n))
 
         plot_filename = 'plot.png'
         plot_name = ""
@@ -170,7 +170,6 @@ class POWERHAUSRoles:
                 filename=plot_filename,
                 content=plot_name)
 
-        fig.clf()
         plt.clf()
         plt.cla()
 
