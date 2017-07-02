@@ -150,29 +150,31 @@ class POWERHAUSRoles:
 		
         for member in server.members:
             x = member.joined_at
+            
+        await self.bot.say(x)
 
-        plt.switch_backend('Agg')
-        fig, axes = plt.hist(x, 50, alpha = 0.5)
+        # plt.switch_backend('Agg')
+        # fig, axes = plt.hist(x, 50, alpha = 0.5)
     
 
-        plot_filename = 'plot.png'
-        plot_name = ""
+        # plot_filename = 'plot.png'
+        # plot_name = ""
         
 
-        with io.BytesIO() as f:
-            plt.savefig(
-                f, format="png", facecolor=facecolor,
-                edgecolor=edgecolor, transparent=True)
-            f.seek(0)
-            await context.bot.send_file(
-                context.message.channel,
-                f,
-                filename=plot_filename,
-                content=plot_name)
+        # with io.BytesIO() as f:
+            # plt.savefig(
+                # f, format="png", facecolor=facecolor,
+                # edgecolor=edgecolor, transparent=True)
+            # f.seek(0)
+            # await context.bot.send_file(
+                # context.message.channel,
+                # f,
+                # filename=plot_filename,
+                # content=plot_name)
 
-        fig.clf()
-        plt.clf()
-        plt.cla()
+        # fig.clf()
+        # plt.clf()
+        # plt.cla()
 
 
     @_role.command(pass_context=True, no_pm=True, name='games')
