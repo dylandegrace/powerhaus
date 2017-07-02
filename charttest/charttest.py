@@ -25,6 +25,13 @@ class plottest:
         plot_filename = 'plot.png'
         plot_name = ""
         
+        facecolor = '#32363b'
+        edgecolor = '#eeeeee'
+        spinecolor = '#999999'
+        footercolor = '#999999'
+        labelcolor = '#cccccc'
+        tickcolor = '#999999'
+        titlecolor = '#ffffff'
 
         with io.BytesIO() as f:
             plt.savefig(
