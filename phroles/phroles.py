@@ -1,4 +1,8 @@
 import re
+import io
+import aiohttp
+import asyncio
+
 import discord
 from .utils import checks
 from discord.ext import commands
@@ -145,11 +149,12 @@ class POWERHAUSRoles:
 		
         fig,axes = plt.plot()
 		
-        # for member in server.Members:
-            # x = member.joined_at
+        for member in server.Members:
+            x = member.joined_at
 		
-        # axes.hist(x, 50)
-
+        axes.hist(x, 50)
+    
+        plt.switch_backend('Agg')
         plot_filename = 'plot.png'
         plot_name = ""
         
