@@ -150,10 +150,8 @@ class POWERHAUSRoles:
 		
         x = [member.joined_at for member in server.members]
 
-        to_timestamp = np.vectorize(lambda r: r.timestamp())
-        x = to_timestamp(x)
         plt.switch_backend('Agg')
-        hist = np.histogram(x, bins = 100)
+        hist = plt.hist(x, bins = 100)
     
         await self.bot.say(len(hist))
 
