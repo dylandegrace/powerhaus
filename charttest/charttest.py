@@ -37,6 +37,5 @@ class plottest:
 
 
 def setup(bot):
-    check_files()
     n = plottest(bot)
     bot.add_cog(n)
