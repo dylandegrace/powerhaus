@@ -147,14 +147,14 @@ class POWERHAUSRoles:
         tickcolor = '#999999'
         titlecolor = '#ffffff'
 		
-        fig,axes = plt.plot()
 		
         for member in server.Members:
             x = member.joined_at
-		
-        axes.hist(x, 50)
-    
+
         plt.switch_backend('Agg')
+        fig, axes = plt.hist(x, 50, alpha = 0.5)
+    
+
         plot_filename = 'plot.png'
         plot_name = ""
         
