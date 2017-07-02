@@ -149,12 +149,11 @@ class POWERHAUSRoles:
         titlecolor = '#ffffff'
 		
         x = [member.joined_at for member in server.members]
-        total = np.cumsum(x)
 
         plt.switch_backend('Agg')
-        # fig = plt.hist(x, bins = 100)
-        fig = plt.plot(total)
+        hist = np.histogram(x, bins = 100)
     
+        await self.bot.say(len(hist))
 
         plot_filename = 'plot.png'
         plot_name = ""
