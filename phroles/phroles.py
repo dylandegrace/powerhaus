@@ -147,12 +147,9 @@ class POWERHAUSRoles:
         tickcolor = '#999999'
         titlecolor = '#ffffff'
 		
-		
-        for member in server.members:
-            x = member.joined_at
-            
-            await self.bot.say(x)
+		x = [member.joined_at for member in server.members]
 
+        await self.bot.say(x[-5:])
         # plt.switch_backend('Agg')
         # fig, axes = plt.hist(x, 50, alpha = 0.5)
     
