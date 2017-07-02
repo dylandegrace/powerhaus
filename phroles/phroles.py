@@ -7,6 +7,7 @@ import itertools
 import matplotlib
 from matplotlib import pyplot as plt
 matplotlib.use('Agg')
+from .utils.dataIO import dataIO
 from cogs.utils.chat_formatting import box
 from cogs.utils.chat_formatting import pagify
 from __main__ import send_cmd_help
@@ -128,6 +129,45 @@ class POWERHAUSRoles:
             # message = 'There is no such role on this server'
         # await self.bot.say(message)
 		
+    @_role.command(pass_context=True, no_pm=True, name='games')
+    @checks.mod_or_permissions(manage_roles=True)
+    async def _chart(self, context):
+    
+        server = context.message.server
+
+        facecolor = '#32363b'
+        edgecolor = '#eeeeee'
+        spinecolor = '#999999'
+        footercolor = '#999999'
+        labelcolor = '#cccccc'
+        tickcolor = '#999999'
+        titlecolor = '#ffffff'
+		
+        fig,axes = plt.plot()
+		
+        for member in server.Members:
+            x = member.joined_at
+		
+        axes.hist(x, 50)
+
+        plot_filename = 'plot.png'
+        plot_name = ""
+
+        with io.BytesIO() as f:
+            plt.savefig(
+                f, format="png", facecolor=facecolor,
+                edgecolor=edgecolor, transparent=True)
+            f.seek(0)
+            await ctx.bot.send_file(
+                ctx.message.channel,
+                f,
+                filename=plot_filename,
+                content=plot_name)
+
+        fig.clf()
+        plt.clf()
+        plt.cla()
+
 
     @_role.command(pass_context=True, no_pm=True, name='games')
     @checks.mod_or_permissions(manage_roles=True)
