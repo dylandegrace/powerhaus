@@ -150,7 +150,7 @@ class POWERHAUSRoles:
         x = [member.joined_at for member in server.members]
 
         plt.switch_backend('Agg')
-        fig, axes = plt.hist(x, bins = 100)
+        fig = plt.hist(x, bins = 100)
     
 
         plot_filename = 'plot.png'
