@@ -148,7 +148,7 @@ class POWERHAUSRoles:
         titlecolor = '#ffffff'
 		
 		
-        for member in server.Members:
+        for member in server.members:
             x = member.joined_at
 
         plt.switch_backend('Agg')
