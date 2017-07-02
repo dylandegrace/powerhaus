@@ -154,12 +154,11 @@ class POWERHAUSRoles:
         (n, bins, patches) = plt.hist(x, bins = 100)
     
         total = np.cumsum(n)
-        await self.bot.say(len(n))
+        await self.bot.say(n))
 
         plot_filename = 'plot.png'
         plot_name = ""
         
-        plt.plot(total)
 
         with io.BytesIO() as f:
             plt.savefig(
