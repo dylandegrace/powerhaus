@@ -6,7 +6,7 @@ from random import choice
 import itertools
 import matplotlib
 matplotlib.use('Agg')
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 from .utils.dataIO import dataIO
 from cogs.utils.chat_formatting import box
 from cogs.utils.chat_formatting import pagify
