@@ -152,9 +152,12 @@ class POWERHAUSRoles:
 
         plt.switch_backend('Agg')
         (n, bins, patches) = plt.hist(x, bins = 100)
-    
+        plt.clf()
+        
         total = np.cumsum(n)
         await self.bot.say(total)
+        
+        plt.plot(total)
 
         plot_filename = 'plot.png'
         plot_name = ""
