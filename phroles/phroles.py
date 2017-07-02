@@ -11,6 +11,7 @@ import itertools
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import numpy as np
 from .utils.dataIO import dataIO
 from cogs.utils.chat_formatting import box
 from cogs.utils.chat_formatting import pagify
@@ -148,9 +149,11 @@ class POWERHAUSRoles:
         titlecolor = '#ffffff'
 		
         x = [member.joined_at for member in server.members]
+        total = np.cumsum(x)
 
         plt.switch_backend('Agg')
-        fig = plt.hist(x, bins = 100)
+        # fig = plt.hist(x, bins = 100)
+        fig = plt.plot(total)
     
 
         plot_filename = 'plot.png'
