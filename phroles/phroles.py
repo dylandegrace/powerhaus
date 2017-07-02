@@ -147,7 +147,7 @@ class POWERHAUSRoles:
         tickcolor = '#999999'
         titlecolor = '#ffffff'
 		
-		x = [member.joined_at for member in server.members]
+        x = [member.joined_at for member in server.members]
 
         await self.bot.say(x[-5:])
         # plt.switch_backend('Agg')
