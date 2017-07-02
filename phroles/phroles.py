@@ -145,15 +145,14 @@ class POWERHAUSRoles:
 		
         fig,axes = plt.plot()
 		
-        for member in server.Members:
-            x = member.joined_at
+        # for member in server.Members:
+            # x = member.joined_at
 		
-        axes.hist(x, 50)
+        # axes.hist(x, 50)
 
         plot_filename = 'plot.png'
         plot_name = ""
         
-        export DISPLAY=:0.0
 
         with io.BytesIO() as f:
             plt.savefig(
