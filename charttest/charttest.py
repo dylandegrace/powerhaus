@@ -13,7 +13,7 @@ class plottest:
 		
     @commands.command(pass_context=True, no_pm=True, name='chart')
     async def chart(self, context):
-
+        plt.switch_backend('Agg')
         plt.plot([1,2,3])
 
         plot_filename = 'plot.png'
