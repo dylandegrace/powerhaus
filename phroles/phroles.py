@@ -151,7 +151,7 @@ class POWERHAUSRoles:
         for member in server.members:
             x = member.joined_at
             
-        await self.bot.say(x)
+            await self.bot.say(x)
 
         # plt.switch_backend('Agg')
         # fig, axes = plt.hist(x, 50, alpha = 0.5)
