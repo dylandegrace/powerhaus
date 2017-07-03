@@ -142,7 +142,7 @@ class POWERHAUSRoles:
     
         server = context.message.server
 
-        facecolor = '#2a2f3a'
+        facecolor = '#1c202b'
         edgecolor = '#eeeeee'
         spinecolor = '#999999'
         footercolor = '#999999'
@@ -214,6 +214,8 @@ class POWERHAUSRoles:
 
         plot_filename = 'plot.png'
         plot_name = ""
+        
+        plt.tight_layout(pad=2.08)
         
 
         with io.BytesIO() as f:
