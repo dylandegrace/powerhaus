@@ -169,11 +169,16 @@ class POWERHAUSRoles:
         nbins = math.floor((max(x)-min(x)).days/7)
 
         (n, bins, patches) = plt.hist(x, bins = nbins, align='left')
+        plt.clf
         
         ax1 = plt.subplot(211)
         ax1.set_title(titles[0], fontsize=16, color=titlecolor)
         ax1.set_ylabel(yaxes[0], color=labelcolor)
-        plt.clf
+        ax1.spines['bottom'].set_color(edgecolor)
+        ax1.spines['top'].set_color(edgecolor)
+        ax1.spines['left'].set_color(edgecolor)
+        ax1.spines['right'].set_color(edgecolor)        
+        
         
         plt.plot(bins[:-1], n, color=linecolor)
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
@@ -189,7 +194,7 @@ class POWERHAUSRoles:
         ax2 = plt.subplot(212)
         ax2.set_title(titles[1], fontsize=16, color=titlecolor)
         ax2.set_ylabel(yaxes[1], color=labelcolor)
-        ax2.xaxis.label.set_color(labelcolor)
+        
         
         
         plt.plot(bins[:-1], total, color=linecolor)
@@ -198,6 +203,8 @@ class POWERHAUSRoles:
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
         plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
         plt.gcf().autofmt_xdate()
+        
+        ax2.xaxis.label.set_color(labelcolor)
         plot_filename = 'plot.png'
         plot_name = ""
         
