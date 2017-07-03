@@ -158,12 +158,14 @@ class POWERHAUSRoles:
         
         plt.switch_backend('Agg')
         
+
+        
+        (n, bins, patches) = plt.hist(x, bins = 100)
+        
         ax1 = plt.subplot(211)
         ax1.set_title(titles[0])
         ax1.set_xlabel(xaxes)
         ax1.set_ylabel(yaxes[0])
-        
-        (n, bins, patches) = plt.hist(x, bins = 100)
         plt.clf
         plt.cla
         
