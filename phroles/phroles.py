@@ -165,6 +165,7 @@ class POWERHAUSRoles:
         
         (n, bins, patches) = plt.hist(x, bins = 100)
         plt.clf
+        plt.cla
         
         plt.plot(n)
         
