@@ -198,7 +198,7 @@ class POWERHAUSRoles:
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
         plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
         plt.gcf().autofmt_xdate()
-        ax2.set_edgecolor(spinecolor)
+        ax2.spines.set_edgecolor(spinecolor)
         plot_filename = 'plot.png'
         plot_name = ""
         
