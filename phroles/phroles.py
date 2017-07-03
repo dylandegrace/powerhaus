@@ -161,7 +161,7 @@ class POWERHAUSRoles:
         plt.switch_backend('Agg')
         
         fig = plt.figure()
-        fig.subplots_adjust(hspace=.5)
+        fig.subplots_adjust(hspace=.8)
         fig.suptitle('Member Chart', fontsize=20)
         
         
@@ -172,11 +172,11 @@ class POWERHAUSRoles:
         
         ax1 = plt.subplot(211)
         ax1.set_title(titles[0], fontsize=16)
-        ax1.xaxis.set_visible(False)
         ax1.set_ylabel(yaxes[0])
         plt.clf
         
-        plt.plot(n)
+        plt.plot(bins[:-1], n)
+        ax1.axes.get_xaxis().set_ticks([])
         
         total = np.cumsum(n)
         
