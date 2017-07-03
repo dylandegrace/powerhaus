@@ -178,8 +178,8 @@ class POWERHAUSRoles:
         ax1.spines['top'].set_color(edgecolor)
         ax1.spines['left'].set_color(edgecolor)
         ax1.spines['right'].set_color(edgecolor)  
-        ax1.tick_params(axis='x', colors=edgecolor)
-        ax1.tick_params(axis='y', colors=edgecolor)        
+        ax1.tick_params(axis='x', colors=spinecolor)
+        ax1.tick_params(axis='y', colors=spinecolor)        
         
         
         plt.plot(bins[:-1], n, color=linecolor)
@@ -209,8 +209,8 @@ class POWERHAUSRoles:
         ax2.spines['top'].set_color(edgecolor)
         ax2.spines['left'].set_color(edgecolor)
         ax2.spines['right'].set_color(edgecolor)
-        ax2.tick_params(axis='x', colors=edgecolor)
-        ax2.tick_params(axis='y', colors=edgecolor)
+        ax2.tick_params(axis='x', colors=spinecolor)
+        ax2.tick_params(axis='y', colors=spinecolor)
 
         plot_filename = 'plot.png'
         plot_name = ""
