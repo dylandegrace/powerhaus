@@ -149,7 +149,7 @@ class POWERHAUSRoles:
         labelcolor = '#cccccc'
         tickcolor = '#999999'
         titlecolor = '#ffffff'
-        linecolor = ''
+        linecolor = '#ffc43b'
         
 	
         x = [member.joined_at for member in server.members]
@@ -198,7 +198,6 @@ class POWERHAUSRoles:
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
         plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
         plt.gcf().autofmt_xdate()
-        ax2.spines.set_edgecolor(spinecolor)
         plot_filename = 'plot.png'
         plot_name = ""
         
