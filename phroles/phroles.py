@@ -177,6 +177,7 @@ class POWERHAUSRoles:
         
         plt.plot(bins[:-1], n)
         ax1.axes.get_xaxis().set_ticks([])
+        ax1.grid(True)
         
         total = np.cumsum(n)
         
@@ -187,7 +188,8 @@ class POWERHAUSRoles:
         
         
         plt.plot(bins[:-1], total)
-
+        ax2.grid(True)
+        
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
         plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
         plt.gcf().autofmt_xdate()
