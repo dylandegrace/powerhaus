@@ -153,7 +153,7 @@ class POWERHAUSRoles:
         x = [member.joined_at for member in server.members]
 
         titles = ['New Members Per Week', 'Total Members']
-        xaxes = x.set_major_formatter(mdates.DateFormatter('%m/%d'))
+        xaxes = 'x'
         yaxes = ['Frequency','Total Members']
         
         plt.switch_backend('Agg')
