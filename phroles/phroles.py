@@ -164,10 +164,9 @@ class POWERHAUSRoles:
         
         ax1 = plt.subplot(211)
         ax1.set_title(titles[0])
-        ax1.set_xlabel(xaxes)
+        ax1.xaxis.set_visible(False)
         ax1.set_ylabel(yaxes[0])
         plt.clf
-        plt.cla
         
         plt.plot(n)
         
