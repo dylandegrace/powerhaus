@@ -166,7 +166,7 @@ class POWERHAUSRoles:
         
         dt = range(min(bins), datetime.now(), 3)
         
-        await self.bot.say(len(n))
+        await self.bot.say(dt)
         await self.bot.say(len(bins))
         
         ax1 = plt.subplot(211)
