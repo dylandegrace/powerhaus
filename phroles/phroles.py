@@ -215,7 +215,7 @@ class POWERHAUSRoles:
         plot_filename = 'plot.png'
         plot_name = ""
         
-        fig.subplots_adjust(top=2.5, hspace=.35)
+        fig.subplots_adjust(top=.5, hspace=.35)
         
 
         with io.BytesIO() as f:
