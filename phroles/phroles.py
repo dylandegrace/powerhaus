@@ -215,7 +215,7 @@ class POWERHAUSRoles:
         plot_filename = 'plot.png'
         plot_name = ""
         
-        plt.tight_layout(pad=10)
+        plt.tight_layout(pad=3)
         
 
         with io.BytesIO() as f:
