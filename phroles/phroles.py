@@ -161,7 +161,7 @@ class POWERHAUSRoles:
         plt.switch_backend('Agg')
         
         fig = plt.figure()
-        fig.subplots_adjust(hspace=.8)
+        fig.subplots_adjust(top=.8, hspace=.25)
         fig.suptitle('Member Chart', fontsize=20)
         
         
