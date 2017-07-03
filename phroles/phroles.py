@@ -162,7 +162,7 @@ class POWERHAUSRoles:
         plt.switch_backend('Agg')
         
         fig = plt.figure()
-        fig.subplots_adjust(top=12.5, hspace=.35)
+        fig.subplots_adjust(top=1.5, hspace=.35)
         fig.suptitle('POWERHAUS Gaming\nMember Chart\n', fontsize=20, color=titlecolor)
         
         
