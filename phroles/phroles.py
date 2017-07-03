@@ -142,13 +142,14 @@ class POWERHAUSRoles:
     
         server = context.message.server
 
-        facecolor = '#ffffff'
+        facecolor = '#54514e'
         edgecolor = '#eeeeee'
         spinecolor = '#999999'
         footercolor = '#999999'
         labelcolor = '#cccccc'
         tickcolor = '#999999'
         titlecolor = '#ffffff'
+        linecolor = ''
         
 	
         x = [member.joined_at for member in server.members]
@@ -175,12 +176,13 @@ class POWERHAUSRoles:
         ax1.set_ylabel(yaxes[0])
         plt.clf
         
-        plt.plot(bins[:-1], n)
+        plt.plot(bins[:-1], n, color=linecolor)
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
         plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
         plt.gcf().autofmt_xdate()
         ax1.tick_params(labelbottom='off')   
         ax1.grid(True)
+        
         
         total = np.cumsum(n)
         
@@ -190,12 +192,13 @@ class POWERHAUSRoles:
         ax2.set_ylabel(yaxes[1])
         
         
-        plt.plot(bins[:-1], total)
+        plt.plot(bins[:-1], total, color=linecolor)
         ax2.grid(True)
         
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
         plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
         plt.gcf().autofmt_xdate()
+        ax2.set_edgecolor(spinecolor)
         plot_filename = 'plot.png'
         plot_name = ""
         
