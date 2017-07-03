@@ -142,7 +142,7 @@ class POWERHAUSRoles:
     
         server = context.message.server
 
-        facecolor = '#54514e'
+        facecolor = '#2a2f3a'
         edgecolor = '#eeeeee'
         spinecolor = '#999999'
         footercolor = '#999999'
@@ -187,7 +187,7 @@ class POWERHAUSRoles:
         plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
         plt.gcf().autofmt_xdate()
         ax1.tick_params(labelbottom='off')   
-        ax1.grid(True)
+        ax1.grid(True, alpha = 0.5)
         
         
         total = np.cumsum(n)
@@ -200,7 +200,7 @@ class POWERHAUSRoles:
         
         
         plt.plot(bins[:-1], total, color=linecolor)
-        ax2.grid(True)
+        ax2.grid(True, alpha = 0.5)
         
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
         plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
