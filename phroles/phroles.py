@@ -146,7 +146,7 @@ class POWERHAUSRoles:
         edgecolor = '#eeeeee'
         spinecolor = '#999999'
         footercolor = '#999999'
-        labelcolor = '#cccccc'
+        labelcolor = '#eeeeee'
         tickcolor = '#999999'
         titlecolor = '#ffffff'
         linecolor = '#ffc43b'
@@ -203,6 +203,10 @@ class POWERHAUSRoles:
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
         plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
         plt.gcf().autofmt_xdate()
+        ax1.spines['bottom'].set_color(edgecolor)
+        ax1.spines['top'].set_color(edgecolor)
+        ax1.spines['left'].set_color(edgecolor)
+        ax1.spines['right'].set_color(edgecolor)   
         
         ax2.xaxis.label.set_color(labelcolor)
         plot_filename = 'plot.png'
