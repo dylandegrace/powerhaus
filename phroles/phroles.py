@@ -176,7 +176,7 @@ class POWERHAUSRoles:
         plt.clf
         
         plt.plot(bins[:-1], n)
-        ax1.axes.get_xaxis().set_ticks([])
+        ax1.tick_params(labelbottom='off')   
         ax1.grid(True)
         
         total = np.cumsum(n)
