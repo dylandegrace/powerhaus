@@ -156,12 +156,15 @@ class POWERHAUSRoles:
         xaxes = 'x'
         yaxes = ['Frequency','Total Members']
         
+               
         plt.switch_backend('Agg')
         
         fig = plt.figure()
         fig.subplots_adjust(hspace=.5)
         
         (n, bins, patches) = plt.hist(x, bins = 100)
+        
+        dt = range(min(bins), datetime.now(), 3)
         
         await self.bot.say(len(n))
         await self.bot.say(len(bins))
