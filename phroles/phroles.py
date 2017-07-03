@@ -181,7 +181,7 @@ class POWERHAUSRoles:
         await self.bot.say(len(patches))
         await self.bot.say(len(total))
           
-        plt.plot(total)
+        plt.plot(patches, total)
 
         plot_filename = 'plot.png'
         plot_name = ""
