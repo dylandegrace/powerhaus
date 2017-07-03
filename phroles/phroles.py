@@ -172,7 +172,7 @@ class POWERHAUSRoles:
         ax1.set_ylabel(yaxes[0])
         plt.clf
         
-        plt.plot(n)
+        plt.plot(bins[:-1], n)
         
         total = np.cumsum(n)
         
