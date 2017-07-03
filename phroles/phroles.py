@@ -199,7 +199,7 @@ class POWERHAUSRoles:
         
         
         
-        plt.plot(bins[:-1], total, color=linecolor)
+        plt.plot(bins[:-1], total, c=total, cmap='autumn')
         ax2.grid(True, alpha = 0.5)
         
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
