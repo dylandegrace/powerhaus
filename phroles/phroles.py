@@ -164,10 +164,7 @@ class POWERHAUSRoles:
         
         (n, bins, patches) = plt.hist(x, bins = 100)
         
-        dt = range(min(bins), max(bins), 3)
-        
-        await self.bot.say(dt)
-        await self.bot.say(len(bins))
+        await self.bot.say((bins))
         
         ax1 = plt.subplot(211)
         ax1.set_title(titles[0])
@@ -179,7 +176,6 @@ class POWERHAUSRoles:
         
         total = np.cumsum(n)
         
-        await self.bot.say(total)
         
         ax2 = plt.subplot(212)
         ax2.set_title(titles[1])
