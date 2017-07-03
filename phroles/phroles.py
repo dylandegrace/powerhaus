@@ -177,8 +177,11 @@ class POWERHAUSRoles:
         ax2.set_title(titles[1])
         ax2.set_ylabel(yaxes[1])
         
+        await self.bot.say(len(bins))
+        await self.bot.say(len(patches))
+        await self.bot.say(len(total))
           
-        plt.plot(bins, total)
+        plt.plot(total)
 
         plot_filename = 'plot.png'
         plot_name = ""
