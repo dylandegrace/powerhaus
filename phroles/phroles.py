@@ -162,7 +162,7 @@ class POWERHAUSRoles:
         fig = plt.figure()
         fig.subplots_adjust(hspace=.5)
         
-        (n, bins, patches) = plt.hist(x, bins = 100, align='left')
+        (n, bins, patches) = plt.hist(x, bins = 310/7, align='left')
         
         await self.bot.say((bins))
         
