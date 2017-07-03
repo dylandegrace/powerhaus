@@ -142,7 +142,7 @@ class POWERHAUSRoles:
     
         server = context.message.server
 
-        facecolor = '#fff'
+        facecolor = '#ffffff'
         edgecolor = '#eeeeee'
         spinecolor = '#999999'
         footercolor = '#999999'
