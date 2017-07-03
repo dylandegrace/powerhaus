@@ -175,10 +175,10 @@ class POWERHAUSRoles:
         
         ax2 = plt.subplot(212)
         ax2.set_title(titles[1])
-        ax2.set_xlabel(xaxes)
         ax2.set_ylabel(yaxes[1])
         
-        plt.plot(total)
+          
+        plt.plot(x, total)
 
         plot_filename = 'plot.png'
         plot_name = ""
