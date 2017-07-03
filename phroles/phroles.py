@@ -9,6 +9,7 @@ from discord.ext import commands
 from random import choice
 import itertools
 import math
+import datetime
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
