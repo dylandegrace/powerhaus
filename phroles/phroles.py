@@ -163,9 +163,9 @@ class POWERHAUSRoles:
         fig = plt.figure()
         fig.subplots_adjust(hspace=.5)
         
-        (n, bins, patches) = plt.hist(x, bins = math.ceil(310/7), align='left')
         
-        await self.bot.say((bins))
+        
+        (n, bins, patches) = plt.hist(x, bins = [x, x[-1]+1], align='left')
         
         ax1 = plt.subplot(211)
         ax1.set_title(titles[0])
