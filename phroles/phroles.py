@@ -9,7 +9,6 @@ from discord.ext import commands
 from random import choice
 import itertools
 import math
-import datetime
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -165,7 +164,7 @@ class POWERHAUSRoles:
         fig.subplots_adjust(hspace=.5)
         
         
-        nbins = x.max-x.min
+        nbins = (max(x)-min(x)).day
         await self.bot.say(nbins)
         (n, bins, patches) = plt.hist(x, bins = 100, align='left')
         
