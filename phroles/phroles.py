@@ -189,7 +189,7 @@ class POWERHAUSRoles:
         ax2 = plt.subplot(212)
         ax2.set_title(titles[1], fontsize=16, color=titlecolor)
         ax2.set_ylabel(yaxes[1], color=labelcolor)
-        ax2.set_xlabel(color=labelcolor)
+        ax2.xaxis.label.set_color(labelcolor)
         
         
         plt.plot(bins[:-1], total, color=linecolor)
