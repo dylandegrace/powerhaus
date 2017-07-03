@@ -164,9 +164,11 @@ class POWERHAUSRoles:
         ax1.set_ylabel(yaxes[0])
         
         (n, bins, patches) = plt.hist(x, bins = 100)
+        plt.clf
+        
+        plt.plot(n)
         
         total = np.cumsum(n)
-        await self.bot.say(total)
         
         ax2 = plt.subplot(212)
         ax2.set_title(titles[1])
