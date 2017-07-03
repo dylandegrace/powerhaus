@@ -164,10 +164,10 @@ class POWERHAUSRoles:
         fig.subplots_adjust(hspace=.5)
         
         
-        nbins = (max(x)-min(x)).days
+        nbins = floor((max(x)-min(x)).days/7)
 
         await self.bot.say(nbins)
-        (n, bins, patches) = plt.hist(x, bins = 100, align='left')
+        (n, bins, patches) = plt.hist(x, bins = nbins, align='left')
         
         ax1 = plt.subplot(211)
         ax1.set_title(titles[0])
