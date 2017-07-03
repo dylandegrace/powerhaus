@@ -11,6 +11,7 @@ import itertools
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 import numpy as np
 from .utils.dataIO import dataIO
 from cogs.utils.chat_formatting import box
@@ -147,15 +148,30 @@ class POWERHAUSRoles:
         labelcolor = '#cccccc'
         tickcolor = '#999999'
         titlecolor = '#ffffff'
-		
+        
+	
         x = [member.joined_at for member in server.members]
 
+        titles = ['New Members Per Week', 'Total Members']
+        xaxes = x.set_major_formatter(mdates.DateFormatter('%m/%d'))
+        yaxes = ['Frequency','Total Members']
+        
         plt.switch_backend('Agg')
+        
+        ax1 = plt.subplot(211)
+        ax1.set_title(titles[0])
+        ax1.set_xlabel(xaxes)
+        ax1.set_ylabel(yaxes[0])
+        
         (n, bins, patches) = plt.hist(x, bins = 100)
-        plt.clf()
         
         total = np.cumsum(n)
         await self.bot.say(total)
+        
+        ax2 = plt.subplot(212)
+        ax2.set_title(titles[1])
+        ax2.set_xlabel(xaxes)
+        ax2.set_ylabel(yaxes[1])
         
         plt.plot(total)
 
