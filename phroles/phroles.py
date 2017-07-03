@@ -161,8 +161,8 @@ class POWERHAUSRoles:
                
         plt.switch_backend('Agg')
         
-        fig = plt.figure(figsize=(8,6))
-        
+        fig = plt.figure()
+        fig.subplots_adjust(top=12.5, hspace=.35)
         fig.suptitle('POWERHAUS Gaming\nMember Chart\n', fontsize=20, color=titlecolor)
         
         
@@ -215,8 +215,7 @@ class POWERHAUSRoles:
         plot_filename = 'plot.png'
         plot_name = ""
         
-        fig.subplots_adjust(top=.2)
-        
+
 
         with io.BytesIO() as f:
             plt.savefig(
