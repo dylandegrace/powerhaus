@@ -187,8 +187,8 @@ class POWERHAUSRoles:
         
         plt.plot(bins[:-1], total)
 
-        ax2.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
-        ax2.set_major_locator(mdates.DayLocator())
+        plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
+        plt.gca().xaxis.set_major_locator(mdates.DayLocator())
         
         plot_filename = 'plot.png'
         plot_name = ""
