@@ -162,7 +162,7 @@ class POWERHAUSRoles:
         
         fig = plt.figure()
         fig.subplots_adjust(hspace=.5)
-        fig.suptitle('Member Chart')
+        fig.suptitle('Member Chart', fontsize=20)
         
         
         nbins = math.floor((max(x)-min(x)).days/7)
@@ -171,7 +171,7 @@ class POWERHAUSRoles:
         (n, bins, patches) = plt.hist(x, bins = nbins, align='left')
         
         ax1 = plt.subplot(211)
-        ax1.set_title(titles[0])
+        ax1.set_title(titles[0], fontsize=16)
         ax1.xaxis.set_visible(False)
         ax1.set_ylabel(yaxes[0])
         plt.clf
@@ -182,7 +182,7 @@ class POWERHAUSRoles:
         
         
         ax2 = plt.subplot(212)
-        ax2.set_title(titles[1])
+        ax2.set_title(titles[1], fontsize=16)
         ax2.set_ylabel(yaxes[1])
         
         
