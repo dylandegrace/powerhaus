@@ -178,7 +178,7 @@ class POWERHAUSRoles:
         ax2.set_ylabel(yaxes[1])
         
           
-        plt.plot(x, total)
+        plt.plot(bins, total)
 
         plot_filename = 'plot.png'
         plot_name = ""
