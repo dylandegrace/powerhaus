@@ -201,7 +201,7 @@ class POWERHAUSRoles:
         
         
         
-        plt.plot(bins[:-1], total)
+        plt.plot(bins[:-1], total, color=linecolor)
         ax2.grid(True, alpha = 0.5)
         
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
