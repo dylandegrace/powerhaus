@@ -142,7 +142,7 @@ class POWERHAUSRoles:
     
         server = context.message.server
 
-        facecolor = '#32363b'
+        facecolor = '#fff'
         edgecolor = '#eeeeee'
         spinecolor = '#999999'
         footercolor = '#999999'
@@ -162,6 +162,7 @@ class POWERHAUSRoles:
         
         fig = plt.figure()
         fig.subplots_adjust(hspace=.5)
+        fig.title('Member Chart')
         
         
         nbins = math.floor((max(x)-min(x)).days/7)
