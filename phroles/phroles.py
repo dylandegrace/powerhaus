@@ -162,8 +162,8 @@ class POWERHAUSRoles:
         plt.switch_backend('Agg')
         
         fig = plt.figure()
-        fig.subplots_adjust(top=0.8, hspace=.35)
-        fig.suptitle('POWERHAUS Gaming\nMember Chart\n', fontsize=20, color=titlecolor)
+        fig.subplots_adjust(top=0.73, hspace=.35)
+        fig.suptitle('POWERHAUS Gaming\nMember Chart\n', fontsize=20, color=titlecolor, y=1.07)
         
         
         nbins = math.floor((max(x)-min(x)).days/7)
