@@ -14,6 +14,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import numpy as np
+from matplotlib.colors import LinearSegmentedColormap
 from .utils.dataIO import dataIO
 from cogs.utils.chat_formatting import box
 from cogs.utils.chat_formatting import pagify
@@ -165,6 +166,7 @@ class POWERHAUSRoles:
         fig.subplots_adjust(top=0.73, hspace=.35)
         fig.suptitle('POWERHAUS Gaming\nMember Chart\n', fontsize=20, color=titlecolor, y=0.95)
         
+
         
         nbins = math.floor((max(x)-min(x)).days/7)
 
@@ -180,7 +182,7 @@ class POWERHAUSRoles:
         ax1.spines['right'].set_color(edgecolor)  
         ax1.tick_params(axis='x', colors=spinecolor)
         ax1.tick_params(axis='y', colors=spinecolor)        
-        
+             
         
         plt.plot(bins[:-1], n, color=linecolor)
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
@@ -215,8 +217,6 @@ class POWERHAUSRoles:
         plot_filename = 'plot.png'
         plot_name = ""
         
-
-
         with io.BytesIO() as f:
             plt.savefig(
                 f, format="png", facecolor=facecolor,
