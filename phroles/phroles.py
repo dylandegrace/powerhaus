@@ -176,6 +176,9 @@ class POWERHAUSRoles:
         plt.clf
         
         plt.plot(bins[:-1], n)
+        plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
+        plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
+        plt.gcf().autofmt_xdate()
         ax1.tick_params(labelbottom='off')   
         ax1.grid(True)
         
