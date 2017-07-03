@@ -162,7 +162,7 @@ class POWERHAUSRoles:
         
         fig = plt.figure()
         fig.subplots_adjust(hspace=.5)
-        fig.title('Member Chart')
+        fig.suptitle('Member Chart')
         
         
         nbins = math.floor((max(x)-min(x)).days/7)
