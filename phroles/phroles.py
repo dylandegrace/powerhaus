@@ -177,7 +177,9 @@ class POWERHAUSRoles:
         ax1.spines['bottom'].set_color(edgecolor)
         ax1.spines['top'].set_color(edgecolor)
         ax1.spines['left'].set_color(edgecolor)
-        ax1.spines['right'].set_color(edgecolor)        
+        ax1.spines['right'].set_color(edgecolor)  
+        ax1.tick_params(axis='x', colors=edgecolor)
+        ax1.tick_params(axis='y', colors=edgecolor)        
         
         
         plt.plot(bins[:-1], n, color=linecolor)
@@ -203,12 +205,13 @@ class POWERHAUSRoles:
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
         plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
         plt.gcf().autofmt_xdate()
-        ax1.spines['bottom'].set_color(edgecolor)
-        ax1.spines['top'].set_color(edgecolor)
-        ax1.spines['left'].set_color(edgecolor)
-        ax1.spines['right'].set_color(edgecolor)   
-        
-        ax2.xaxis.label.set_color(labelcolor)
+        ax2.spines['bottom'].set_color(edgecolor)
+        ax2.spines['top'].set_color(edgecolor)
+        ax2.spines['left'].set_color(edgecolor)
+        ax2.spines['right'].set_color(edgecolor)
+        ax2.tick_params(axis='x', colors=edgecolor)
+        ax2.tick_params(axis='y', colors=edgecolor)
+
         plot_filename = 'plot.png'
         plot_name = ""
         
