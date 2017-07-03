@@ -163,6 +163,9 @@ class POWERHAUSRoles:
         
         (n, bins, patches) = plt.hist(x, bins = 100)
         
+        await self.bot.say(len(n))
+        await self.bot.say(len(bins))
+        
         ax1 = plt.subplot(211)
         ax1.set_title(titles[0])
         ax1.xaxis.set_visible(False)
@@ -173,15 +176,14 @@ class POWERHAUSRoles:
         
         total = np.cumsum(n)
         
+        await self.bot.say(total)
+        
         ax2 = plt.subplot(212)
         ax2.set_title(titles[1])
         ax2.set_ylabel(yaxes[1])
         
-        await self.bot.say(len(bins))
-        await self.bot.say(len(patches))
-        await self.bot.say(len(total))
-          
-        plt.plot(patches, total)
+        
+        plt.plot(total)
 
         plot_filename = 'plot.png'
         plot_name = ""
