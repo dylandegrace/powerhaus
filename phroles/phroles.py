@@ -164,9 +164,9 @@ class POWERHAUSRoles:
         fig.subplots_adjust(hspace=.5)
         
         
-        dt = (max(x)-min(x))
-        nsecs = dt.minute*60 + dt.second + dt.microsecond*1e-6  
-        await self.bot.say(nsecs)
+        nbins = (max(x)-min(x)).days
+
+        await self.bot.say(nbins)
         (n, bins, patches) = plt.hist(x, bins = 100, align='left')
         
         ax1 = plt.subplot(211)
