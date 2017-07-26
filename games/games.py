@@ -220,9 +220,12 @@ class Games:
         embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.\n\nView our game pages on [our website](https://www.powerhaus.gg/games)")
         await self.bot.say(embed=embed)
       
-    @commands.group(name = "slist", pass_context=True)
+    @commands.group(name = "slist", pass_context=True)  
     async def slist(self, ctx):
         """List function to display streams that are enabled with Stream Alerts"""
+        self.twitch_streams = fileIO("data/streams/twitch.json", "load")
+        self.hitbox_streams = fileIO("data/streams/hitbox.json", "load")
+        self.beam_streams = fileIO("data/streams/beam.json", "load")
         pass
 
     @slist.command(name = "twitch", pass_context=True)
