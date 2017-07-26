@@ -216,7 +216,7 @@ class Games:
         embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=field_value) # Can add multiple fields.
         embed.add_field(name="", value="")
         embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.\n\nView our game pages on [our website](https://www.powerhaus.gg/games)")
-        await self.bot.say(embed=embed 
+        await self.bot.say(embed=embed)
       
     @commands.group(name = "slist", pass_context=True)
     async def slist(self, ctx):
