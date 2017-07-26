@@ -217,12 +217,7 @@ class Games:
         embed.add_field(name="", value="")
         embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.\n\nView our game pages on [our website](https://www.powerhaus.gg/games)")
         await self.bot.say(embed=embed 
-
-    @commands.command(no_pm=True)
-    async def membercount(self, server):
-	
-        await self.bot.say(server.members)
-        
+      
     @commands.group(name = "slist", pass_context=True)
     async def slist(self, ctx):
         """List function to display streams that are enabled with Stream Alerts"""
