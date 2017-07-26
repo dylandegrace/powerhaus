@@ -234,7 +234,7 @@ class Games:
         for item in self.twitch_streams:
             message += str("**"+item["NAME"] +"**\n"+"Channel(s): " + "".join(item["CHANNELS"]) + "\n")
             twitempty = 0
-        await self.bot.say(box(message))
+        await self.bot.say(pagify(message))
 
         if twitempty == True:
             await self.bot.say("No Twitch streams are set to Alert in this channel.")
