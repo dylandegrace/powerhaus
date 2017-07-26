@@ -23,7 +23,9 @@ class Games:
         self.bot = bot
         self._settings = dataIO.load_json('data/games/settings.json')
         self._settable_roles = self._settings.get("ROLES", {})
-
+        self.twitch_streams = fileIO("data/streams/twitch.json", "load")
+        self.hitbox_streams = fileIO("data/streams/hitbox.json", "load")
+        self.beam_streams = fileIO("data/streams/beam.json", "load")
 
     def _get_addgame_names(self, server):
         if server.id not in self._settable_roles:
@@ -215,7 +217,6 @@ class Games:
         embed.type = "rich"
         embed.title = "**GAMES LIST**"
         embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=field_value) # Can add multiple fields.
-        embed.add_field(name="", value="")
         embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.\n\nView our game pages on [our website](https://www.powerhaus.gg/games)")
         await self.bot.say(embed=embed)
       
