@@ -23,9 +23,7 @@ class Games:
         self.bot = bot
         self._settings = dataIO.load_json('data/games/settings.json')
         self._settable_roles = self._settings.get("ROLES", {})
-        self.twitch_streams = fileIO("data/streams/twitch.json", "load")
-        self.hitbox_streams = fileIO("data/streams/hitbox.json", "load")
-        self.beam_streams = fileIO("data/streams/beam.json", "load")
+
 
     def _get_addgame_names(self, server):
         if server.id not in self._settable_roles:
