@@ -232,6 +232,7 @@ class Games:
         twitempty = 1
         message = ""
         for item in self.twitch_streams:
+            message += str(item["NAME"] +"in channel(s)" + "".join(item["CHANNELS"]) + "\n")
             twitempty = 0
         await self.bot.say(box(message))
 
