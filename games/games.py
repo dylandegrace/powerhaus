@@ -4,6 +4,7 @@ from cogs.utils import checks
 from cogs.utils.dataIO import dataIO
 from .utils.dataIO import fileIO
 from cogs.utils.chat_formatting import box, pagify
+from cogs.utils.chat_formatting import *
 from copy import deepcopy
 import asyncio
 import logging
@@ -213,13 +214,58 @@ class Games:
         embed.type = "rich"
         embed.title = "**GAMES LIST**"
         embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=field_value) # Can add multiple fields.
+        embed.add_field(name="", value="")
         embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.\n\nView our game pages on [our website](https://www.powerhaus.gg/games)")
-        await self.bot.say(embed=embed)
-		
+        await self.bot.say(embed=embed 
+
     @commands.command(no_pm=True)
     async def membercount(self, server):
 	
         await self.bot.say(server.members)
+        
+    @commands.group(name = "slist", pass_context=True)
+    async def slist(self, ctx):
+        """List function to display streams that are enabled with Stream Alerts"""
+        pass
+
+    @slist.command(name = "twitch", pass_context=True)
+    async def twitchlist(self):
+        """Lists StreamAlerts turned on for Twitch"""
+        await self.bot.say("Twitch Streams set up for Alerts:")
+        twitempty = 1
+        message = ""
+        for item in self.twitch_streams:
+            message += str(item["NAME"] + "\n")
+            twitempty = 0
+        await self.bot.say(box(message))
+
+        if twitempty == True:
+            await self.bot.say("No Twitch streams are set to Alert in this channel.")
+
+    @slist.command(name = "hitbox", pass_context=True)
+    async def hitboxlist(self):
+        """Lists StreamAlerts turned on for Hitbox"""
+        await self.bot.say("Hitbox Streams set up for Alerts:")
+        hitempty = 1
+        message = ""
+        for item in self.hitbox_streams:
+            await self.bot.say(item["NAME"])
+            hitempty = 0
+
+        if hitempty == True:
+            await self.bot.say("No Hitbox streams are set to Alert in this channel.")
+
+    @slist.command(name = "beam", pass_context=True)
+    async def beamlist(self):
+        """Lists StreamAlerts turned on for Beam"""
+        await self.bot.say("Beam Streams set up for Alerts:")
+        beamempty = 1
+        for item in self.beam_streams:
+            await self.bot.say(item["NAME"])
+            beamempty = 0
+
+        if beamempty == True:
+            await self.bot.say("No Beam streams are set to Alert in this channel.")
 
 
 def check_files():
