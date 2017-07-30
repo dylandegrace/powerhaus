@@ -223,7 +223,7 @@ class Games:
     @commands.command(name = "salert", pass_context=True)
     async def salert(self, ctx):
         """Adds stream alerts to the channel defined"""
-        self.bot.get_cog("streams").Streams
+        self.bot.get_cog("Streams").Streams
         pass
       
     @commands.group(name = "slist", pass_context=True)  
