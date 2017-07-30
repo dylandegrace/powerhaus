@@ -10,7 +10,7 @@ import asyncio
 from copy import deepcopy
 import logging
 
-class Streams:
+class phStreams:
     """Streams
 
     Twitch, Hitbox and Beam alerts"""
@@ -395,7 +395,7 @@ def setup(bot):
     logger.setLevel(50) #Stops warning spam
     check_folders()
     check_files()
-    n = Streams(bot)
+    n = phStreams(bot)
     loop = asyncio.get_event_loop()
     loop.create_task(n.stream_checker())
     bot.add_cog(n)

@@ -219,12 +219,7 @@ class Games:
         embed.add_field(name="We support the following games in our Discord server with private channels:\n", value=field_value) # Can add multiple fields.
         embed.add_field(name="Example:", value="To add **Overwatch** type, `!addgame overwatch`.\n\nView our game pages on [our website](https://www.powerhaus.gg/games)")
         await self.bot.say(embed=embed)
-        
-    @commands.command(name = "salert", pass_context=True)
-    async def salert(self, ctx):
-        """Adds stream alerts to the channel defined"""
-        self.bot.get_cog("Streams").streamalert
-        
+
     @commands.group(name = "slist", pass_context=True)  
     async def slist(self, ctx):
         """List function to display streams that are enabled with Stream Alerts"""
