@@ -224,7 +224,7 @@ class Games:
     async def salert(self, ctx):
         """Adds stream alerts to the channel defined"""
         salert = self.bot.get_cog("Streams")
-        await self.bot.say(salert)
+        salert.streamalert.twitch_alert(self, ctx, stream : str)
         
     @commands.group(name = "slist", pass_context=True)  
     async def slist(self, ctx):
