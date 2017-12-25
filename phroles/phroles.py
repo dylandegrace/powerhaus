@@ -237,6 +237,7 @@ class POWERHAUSRoles:
         with open(data_file_name, 'r+') as f:
             writer = csv.writer(f, delimiter='\t')
             writer.writerows(zip(bins[:-1], total))
+            f.seek(0)
             await context.bot.send_file(
                 context.message.channel,
                 f,
