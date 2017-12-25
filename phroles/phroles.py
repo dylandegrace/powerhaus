@@ -237,14 +237,13 @@ class POWERHAUSRoles:
         with open(data_file_name, 'r+') as f:
             writer = csv.writer(f, delimiter='\t')
             writer.writerows(zip(bins[:-1], total))
-            f.seek(0,0)
+       
+        with open(data_file_name, 'rb') as f:
             await context.bot.send_file(
                 context.message.channel,
                 f,
                 filename=data_file_name,
                 content=plot_name)
-       
-
 
     @_role.command(pass_context=True, no_pm=True, name='games')
     @checks.mod_or_permissions(manage_roles=True)
