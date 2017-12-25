@@ -230,6 +230,13 @@ class POWERHAUSRoles:
 
         plt.clf()
         plt.cla()
+        
+        import csv
+        data_file_name = 'raw_data.csv'
+        
+        with open(data_file_name, 'w') as f:
+            writer = csv.writer(f, delimiter='\t')
+            writer.writerows(zip(bins[:-1], total))
 
 
     @_role.command(pass_context=True, no_pm=True, name='games')
