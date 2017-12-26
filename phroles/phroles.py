@@ -231,6 +231,8 @@ class POWERHAUSRoles:
         plt.clf()
         plt.cla()
         
+        bins = bins.astype(datetime.datetime)
+        
         import csv
         data_file_name = 'raw_data.csv'
         
