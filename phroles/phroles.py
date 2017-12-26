@@ -234,9 +234,9 @@ class POWERHAUSRoles:
         import csv
         data_file_name = 'raw_data.csv'
         
-        with open(data_file_name, 'r+') as f:
+        with open(data_file_name, 'w') as f:
             writer = csv.writer(f, delimiter='\t')
-            writer.writerows(zip(bins[:-1], total))
+            writer.writerows(zip(bins[:-1].strftime('%b-%d-%Y), n, total))
        
         with open(data_file_name, 'rb') as f:
             await context.bot.send_file(
