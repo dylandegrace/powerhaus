@@ -236,7 +236,7 @@ class POWERHAUSRoles:
         data_file_name = 'raw_data.csv'
         
         bins = mdates.num2date(bins)
-        bins = bins.strftime('%m/%d/%Y')
+        # bins = bins.strftime('%m/%d/%Y')
         
         await self.bot.say(type(bins))
         
