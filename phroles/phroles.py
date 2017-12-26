@@ -247,7 +247,7 @@ class POWERHAUSRoles:
         
         with open(data_file_name, 'w') as f:
             writer = csv.writer(f, delimiter=',')
-            writer.writerows(['Date','Change','Total'])
+            writer.writerow(['Date','Change','Total'])
             writer.writerows(zip(bins[:-1], n, total))
        
         with open(data_file_name, 'rb') as f:
