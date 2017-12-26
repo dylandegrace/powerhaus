@@ -231,15 +231,15 @@ class POWERHAUSRoles:
 
         plt.clf()
         plt.cla()
-        
-        bins = bins.astype(datetime.datetime)
-        
+              
         import csv
         data_file_name = 'raw_data.csv'
         
+        bins = bins.strftime('%m/%d/%Y')
+        
         with open(data_file_name, 'w') as f:
             writer = csv.writer(f, delimiter='\t')
-            writer.writerows(zip(bins[:-1].strftime('%b-%d-%Y'), n, total))
+            writer.writerows(zip(bins[:-1], n, total))
        
         with open(data_file_name, 'rb') as f:
             await context.bot.send_file(
