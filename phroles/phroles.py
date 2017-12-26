@@ -242,7 +242,7 @@ class POWERHAUSRoles:
         # bins = bins.DateFormatter('%m/%d/%Y')
         # bins = bins.strftime('%m/%d/%Y')
         
-        await self.bot.say(type(bins))
+        await self.bot.say(bins(1))
         
         
         with open(data_file_name, 'w') as f:
