@@ -235,7 +235,8 @@ class POWERHAUSRoles:
         import csv
         data_file_name = 'raw_data.csv'
         
-        bins = bins.strptime('%m/%d/%Y')
+        bins = mdates.num2date(bins)
+        bins = bins.strftime('%m/%d/%Y')
         
         await self.bot.say(type(bins))
         
