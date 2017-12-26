@@ -235,7 +235,10 @@ class POWERHAUSRoles:
         import csv
         data_file_name = 'raw_data.csv'
         
-        bins = mdates.num2date(bins).strftime('%m/%d/%Y')
+        bins = mdates.num2date(bins)
+        
+        
+        #.strftime('%m/%d/%Y')
         # bins = bins.DateFormatter('%m/%d/%Y')
         # bins = bins.strftime('%m/%d/%Y')
         
@@ -243,7 +246,7 @@ class POWERHAUSRoles:
         
         
         with open(data_file_name, 'w') as f:
-            writer = csv.writer(f, delimiter='\t')
+            writer = csv.writer(f, delimiter=',')
             writer.writerows(zip(bins[:-1], n, total))
        
         with open(data_file_name, 'rb') as f:
