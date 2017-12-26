@@ -235,7 +235,9 @@ class POWERHAUSRoles:
         import csv
         data_file_name = 'raw_data.csv'
         
-        bins = bins.strftime('%m/%d/%Y')
+        
+        binsdate = [datetime.datetime(*x) for x in bins]
+        binsdate = binsdate.strftime('%m/%d/%Y')
         
         with open(data_file_name, 'w') as f:
             writer = csv.writer(f, delimiter='\t')
