@@ -235,7 +235,8 @@ class POWERHAUSRoles:
         import csv
         data_file_name = 'raw_data.csv'
         
-        type(bins)
+        await self.bot.say(type(bins))
+        
         
         with open(data_file_name, 'w') as f:
             writer = csv.writer(f, delimiter='\t')
