@@ -236,6 +236,7 @@ class POWERHAUSRoles:
         data_file_name = 'raw_data.csv'
         
         bins = mdates.num2date(bins)
+        bins = bins[1:8]
         
         
         #.strftime('%m/%d/%Y')
