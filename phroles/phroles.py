@@ -237,15 +237,7 @@ class POWERHAUSRoles:
         
         bins = mdates.num2date(bins)
         
-        bins = [d.strftime('%m/%d/%Y') for d in bins]
-      
-        
-        #.strftime('%m/%d/%Y')
-        # bins = bins.DateFormatter('%m/%d/%Y')
-        # bins = bins.strftime('%m/%d/%Y')
-                
-        await self.bot.say(bins)
-        
+        bins = [d.strftime('%m/%d/%Y') for d in bins]       
         
         with open(data_file_name, 'w') as f:
             writer = csv.writer(f, delimiter=',')
