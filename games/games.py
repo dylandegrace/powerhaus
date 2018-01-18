@@ -86,24 +86,24 @@ class Games:
         await self.bot.say(
             "Self roles successfully set to: {}".format(parsed_role_set))
 			
-    @commands.command(no_pm=True, pass_context=True)
-    async def accept(self, ctx):
-        author = ctx.message.author
-        channel = ctx.message.channel
-        server = author.server
-        acceptmsg = ctx.message
-        recruit = [x for x in author.roles if x.name == "Recruit"]
-        memberRole = discord.utils.get(ctx.message.server.roles, name="Member")
-        recruitRole = discord.utils.get(ctx.message.server.roles, name="Recruit")
-        if (recruit and recruit[0].name == "Recruit"):
-            await self.bot.add_roles(author, memberRole)
-            await asyncio.sleep(0.5)
-            await self.bot.remove_roles(author, recruitRole)
+    # @commands.command(no_pm=True, pass_context=True)
+    # async def accept(self, ctx):
+        # author = ctx.message.author
+        # channel = ctx.message.channel
+        # server = author.server
+        # acceptmsg = ctx.message
+        # recruit = [x for x in author.roles if x.name == "Recruit"]
+        # memberRole = discord.utils.get(ctx.message.server.roles, name="Member")
+        # recruitRole = discord.utils.get(ctx.message.server.roles, name="Recruit")
+        # if (recruit and recruit[0].name == "Recruit"):
+            # await self.bot.add_roles(author, memberRole)
+            # await asyncio.sleep(0.5)
+            # await self.bot.remove_roles(author, recruitRole)
 			
-            await self.bot.whisper("Thank you for accepting the rules.")
-        else:
-                await self.bot.whisper("You already accepted the rules!")
-        await self.bot.delete_message(acceptmsg)
+            # await self.bot.whisper("Thank you for accepting the rules.")
+        # else:
+                # await self.bot.whisper("You already accepted the rules!")
+        # await self.bot.delete_message(acceptmsg)
 		
     @commands.group(no_pm=True, pass_context=True, invoke_without_command=True)
     async def addgame(self, ctx, *, rolename):
