@@ -125,7 +125,7 @@ class Games:
 		
 		
         if member_check is False:
-            await self.bot.whisper("You must first be a **Member** to use this command. Make sure you've accepted the rules in the #welcome channel. If you have questions, PM a Chief Officer or Admin.")
+            await self.bot.whisper("You must first be a **Member** to use this command. Something may have went wrong when you first joined the server. If you have questions, PM a Chief Officer or Admin.")
             return
 
         f = self._role_from_string
@@ -149,7 +149,6 @@ class Games:
             log.debug("Role {} added to {} on {}".format(rolename, author.name,server.id))
             gameSuccess = "Game **{}** successfully added. You now have access to new channels.".format(rolename)											 
             await self.bot.say(gameSuccess)
-            """await self.bot.whisper('hey it worked')"""
 
     @addgame.command(no_pm=True, pass_context=True, name="remove")
     async def addgame_remove(self, ctx, *, rolename):
